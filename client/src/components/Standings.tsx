@@ -56,7 +56,7 @@ const Standings = () => {
   if (!league) return <p>No data available</p>;
 
   return (
-    <div className="container">
+    <>
       <img
         src={league.competition.emblem}
         alt={league.competition.name}
@@ -67,7 +67,7 @@ const Standings = () => {
         {league.season.endDate}
       </p>
       <div className="table-responsive">
-        <table className="table align-middle">
+        <table className="table table-hover align-middle">
           <thead>
             <tr>
               <th scope="col">Position</th>
@@ -89,7 +89,7 @@ const Standings = () => {
                 style={{ cursor: "pointer" }}
               >
                 <th scope="row">{team.position}</th>
-                <td className="team">
+                <td className="team-flex">
                   <img
                     src={team.team.crest}
                     alt={team.team.name}
@@ -116,7 +116,7 @@ const Standings = () => {
           name={selectedTeam.name}
         />
       )}
-    </div>
+    </>
   );
 };
 

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { API_URL } from "../utils/config";
 import { Match } from "../types";
 
 interface Props {
@@ -32,9 +33,11 @@ const Fixtures = ({ teamId, name }: Props) => {
 
   useEffect(() => {
     const fetchFixtures = async (teamId: number) => {
+      setLoading(true); // Reset loading before fetching
+      setError(null);
       try {
         const response = await fetch(
-          "http://localhost:8080/" + fixturesUrl + "?id=" + teamId
+          API_URL + "/" + fixturesUrl + "?id=" + teamId
         );
 
         if (!response.ok) {
@@ -54,24 +57,60 @@ const Fixtures = ({ teamId, name }: Props) => {
       }
     };
 
-    /*fetchAPI();*/
     fetchFixtures(teamId);
-  }, []);
+  }, [teamId]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div>
-      <h1>{name} Fixtures</h1>
-      <ul>
+    <div className="mt-4">
+      <h3 className="mb-4">{name} - Upcoming matches</h3>
+
+      <div className="row">
+        {fixtures?.matches.map((match) => (
+          <div key={match.id} className="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div className="card mb-4">
+              <div className="card-body">
+                <div className="card-title text-center">
+                  <strong>{match.competition.name}</strong>
+                </div>
+                <div className="card-text match-fixture">
+                  <div className="match-fixture-teams">
+                    <div className="team-flex">
+                      <img
+                        src={match.homeTeam.crest}
+                        alt={match.homeTeam.name}
+                        height="30"
+                      ></img>
+                      {match.homeTeam.name}
+                    </div>
+                    <div className="team-flex">
+                      <img
+                        src={match.awayTeam.crest}
+                        alt={match.awayTeam.name}
+                        height="30"
+                      ></img>
+                      {match.awayTeam.name}
+                    </div>
+                  </div>
+                  <div className="match-fixture-date-time">
+                    {new Date(match.utcDate).toLocaleDateString()}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      {/*<ul>
         {fixtures?.matches.map((match) => (
           <li key={match.id}>
             {match.homeTeam.name} vs {match.awayTeam.name} on{" "}
             {new Date(match.utcDate).toLocaleDateString()}
           </li>
-        ))}
-      </ul>
+        ))} 
+      </ul>*/}
     </div>
   );
 };

@@ -1,6 +1,24 @@
-table td.team{
+.team-flex{
     display: flex;
     flex-direction: row;
     gap: 10px;
     align-items: center;
+}
+
+.match-fixture{
+    display: flex;
+    gap: 20px;
+    font-size: 0.9em;
+    align-items: center;
+    flex-direction: column;
+}
+
+.match-fixture .match-fixture-teams{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;    
+}
+
+.match-fixture-date-time{
+    font-size: 0.7em;
 }
