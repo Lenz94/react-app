@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { API_URL } from "../utils/config";
 import Fixtures from "./Fixtures";
 import { Area, Competition, Season, Standing } from "../types";
 
@@ -23,7 +24,7 @@ const Standings = () => {
   useEffect(() => {
     const fetchStandingsData = async () => {
       try {
-        const response = await fetch("http://localhost:8080/" + standingsUrl);
+        const response = await fetch(API_URL + "/" + standingsUrl);
         if (!response.ok) {
           console.log(response);
           throw new Error("Network response was not ok");

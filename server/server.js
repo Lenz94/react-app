@@ -5,8 +5,11 @@ const axios = require("axios");
 const app = express();
 const port = process.env.PORT || 8080;
 const cors = require("cors");
+
+const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:5173'
+
 const corsOptions = {
-    origin: ["http://localhost:5173"],
+    origin: [frontendUrl],
 }
 
 app.use(cors(corsOptions));
@@ -27,7 +30,7 @@ async function fetchData(url, res) {
 }
 
 app.get("/la-liga-standings", async (req, res) => {
-    const competitionID = "PD";
+    const competitionID = "PL";
     if (!competitionID) {
         return res.status(400).json({ message: "Missing competitionID parameter" });
     }
