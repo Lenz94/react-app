@@ -102,7 +102,10 @@ const Fixtures = ({ teamId, name }: Props) => {
                 </div>
               </div>
               <div className="card-footer match-fixture-date-time text-center">
-                {new Date(match.utcDate).toLocaleDateString()}
+                <div>
+                  <strong>Match #{match.matchday}</strong>
+                </div>
+                <div>{new Date(match.utcDate).toLocaleDateString()}</div>
               </div>
             </div>
           </div>

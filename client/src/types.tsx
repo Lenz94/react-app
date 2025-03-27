@@ -68,7 +68,7 @@ export interface Match {
   season: Season;
   utcDate: string;
   status: string;
-  matchDay: number;
+  matchday: number;
   stage: string;
   group: string | null;
   homeTeam: Team;
