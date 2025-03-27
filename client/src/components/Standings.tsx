@@ -16,13 +16,22 @@ const Standings = () => {
     id: number;
     name: string;
   } | null>(null);
+
+  const handleTeamSelection = (id: number, name: string) => {
+    setSelectedTeam((prev) => (prev?.id === id ? prev : { id, name }));
+  };
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   const standingsUrl = "la-liga-standings";
 
   useEffect(() => {
+    let isMounted = true;
+
     const fetchStandingsData = async () => {
+      setLoading(true);
+      setError(null);
       try {
         const response = await fetch(API_URL + "/" + standingsUrl);
         if (!response.ok) {
@@ -32,19 +41,21 @@ const Standings = () => {
 
         const data: LeagueResponse = await response.json();
 
-        if (data.standings.length > 0) {
-          setLeague(data);
-        } else {
-          throw new Error("standings data is empty");
+        if (isMounted) {
+          if (data.standings.length > 0) {
+            setLeague(data);
+          } else {
+            throw new Error("Standings data is empty");
+          }
         }
       } catch (error) {
-        if (error instanceof Error) {
-          setError(error.message);
-        } else {
-          setError("An unknown error ocurred");
+        if (isMounted) {
+          setError(
+            error instanceof Error ? error.message : "An unknown error occurred"
+          );
         }
       } finally {
-        setLoading(false);
+        if (isMounted) setLoading(false);
       }
     };
     fetchStandingsData();
@@ -84,7 +95,7 @@ const Standings = () => {
               <tr
                 key={team.team.id}
                 onClick={() =>
-                  setSelectedTeam({ id: team.team.id, name: team.team.name })
+                  handleTeamSelection(team.team.id, team.team.name)
                 }
                 style={{ cursor: "pointer" }}
               >

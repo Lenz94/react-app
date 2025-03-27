@@ -32,6 +32,8 @@ const Fixtures = ({ teamId, name }: Props) => {
   const fixturesUrl = "team-fixtures";
 
   useEffect(() => {
+    let isMounted = true;
+
     const fetchFixtures = async (teamId: number) => {
       setLoading(true); // Reset loading before fetching
       setError(null);
@@ -45,19 +47,22 @@ const Fixtures = ({ teamId, name }: Props) => {
           throw new Error("Network response was not ok");
         }
         const data = await response.json();
-        setFixtures(data);
+        if (isMounted) setFixtures(data);
       } catch (error) {
-        if (error instanceof Error) {
-          setError(error.message);
-        } else {
-          setError("An unknown error occurred");
-        }
+        if (isMounted)
+          setError(
+            error instanceof Error ? error.message : "An unknown error occurred"
+          );
       } finally {
-        setLoading(false);
+        if (isMounted) setLoading(false);
       }
     };
 
     fetchFixtures(teamId);
+
+    return () => {
+      isMounted = false;
+    };
   }, [teamId]);
 
   if (loading) return <p>Loading...</p>;
@@ -71,10 +76,10 @@ const Fixtures = ({ teamId, name }: Props) => {
         {fixtures?.matches.map((match) => (
           <div key={match.id} className="col-12 col-sm-6 col-md-4 col-lg-3">
             <div className="card mb-4">
+              <div className="card-header text-bg-dark text-center">
+                <strong>{match.competition.name}</strong>
+              </div>
               <div className="card-body">
-                <div className="card-title text-center">
-                  <strong>{match.competition.name}</strong>
-                </div>
                 <div className="card-text match-fixture">
                   <div className="match-fixture-teams">
                     <div className="team-flex">
@@ -94,10 +99,10 @@ const Fixtures = ({ teamId, name }: Props) => {
                       {match.awayTeam.name}
                     </div>
                   </div>
-                  <div className="match-fixture-date-time">
-                    {new Date(match.utcDate).toLocaleDateString()}
-                  </div>
                 </div>
+              </div>
+              <div className="card-footer match-fixture-date-time text-center">
+                {new Date(match.utcDate).toLocaleDateString()}
               </div>
             </div>
           </div>
