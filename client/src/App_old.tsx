@@ -38,7 +38,6 @@ function App() {
       <Button color="primary" onClick={() => setAlertVisibility(true)}>
         My button
       </Button>
-      <Standings></Standings>
     </div>
   );
 }

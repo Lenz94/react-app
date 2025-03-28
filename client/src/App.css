@@ -6,6 +6,28 @@ h1, h2, h3 {
     font-family: 'Merriweather', serif;
 }
 
+.pointer{
+    cursor: pointer;
+}
+
+.competitions{
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    margin: 50px 0;
+}
+
+.competition-logo{
+    display: block;
+    width: 100px;
+}
+
+.competition-logo img{
+    object-fit: scale-down;
+    height: 100%;
+    width: 100%;
+}
+
 
 .team-flex{
     display: flex;

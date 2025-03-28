@@ -3,6 +3,10 @@ import { API_URL } from "../utils/config";
 import Fixtures from "./Fixtures";
 import { Area, Competition, Season, Standing } from "../types";
 
+interface Props {
+  leagueId: string;
+}
+
 interface LeagueResponse {
   area: Area;
   competition: Competition;
@@ -10,7 +14,7 @@ interface LeagueResponse {
   standings: Standing[];
 }
 
-const Standings = () => {
+const Standings = ({ leagueId }: Props) => {
   const [league, setLeague] = useState<LeagueResponse | null>(null);
   const [selectedTeam, setSelectedTeam] = useState<{
     id: number;
@@ -28,8 +32,6 @@ const Standings = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const standingsUrl = "la-liga-standings";
-
   useEffect(() => {
     let isMounted = true;
 
@@ -37,7 +39,7 @@ const Standings = () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch(API_URL + "/" + standingsUrl);
+        const response = await fetch(API_URL + "/standings?id=" + leagueId);
         if (!response.ok) {
           console.log(response);
           throw new Error("Network response was not ok");

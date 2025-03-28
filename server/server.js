@@ -29,8 +29,12 @@ async function fetchData(url, res) {
     }
 }
 
-app.get("/la-liga-standings", async (req, res) => {
-    const competitionID = "PL";
+app.get("/competitions", async (req, res) => {
+    fetchData(`https://api.football-data.org/v4/competitions`, res);
+})
+
+app.get("/standings", async (req, res) => {
+    const competitionID = req.query.id;
     if (!competitionID) {
         return res.status(400).json({ message: "Missing competitionID parameter" });
     }
