@@ -83,7 +83,8 @@ const Leagues = ({ onSelectLeague }: LeaguesProps) => {
               onClick={() => onSelectLeague(competition.code)}
               src={competition.emblem}
               alt={competition.name}
-              height={50}
+              height={70}
+              width={70}
               className="pointer"
             />
           </div>

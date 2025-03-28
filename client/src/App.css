@@ -6,28 +6,61 @@ h1, h2, h3 {
     font-family: 'Merriweather', serif;
 }
 
+/*.intro-container{
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}*/
+
+.intro{
+    background-color: rgb(15 23 42 / 1);
+    padding: 20px;
+    color: #fff;
+    display: flex;
+}
+
+.intro .scramble-text{
+    margin: auto;
+    font-size: 36px;
+    line-height: 1.2;
+}
+
 .pointer{
     cursor: pointer;
 }
 
-.competitions{
+
+.football-data{
+    background-color: rgb(15 23 42 / 1);
+    padding: 20px;
+    color: #fff;
+    justify-content: center;
     display: flex;
-    gap: 20px;
-    justify-content: space-between;
-    margin: 50px 0;
+    flex-direction: column;
+}
+
+.competitions{
+    display: grid;
+    gap: 30px;
+    grid-template-columns: auto auto auto;
+    margin: auto;
+    width: fit-content;
 }
 
 .competition-logo{
     display: block;
-    width: 100px;
+    border-radius: 100%;
+    border: 1px solid black;
+    overflow: hidden;
+    background: #fff;
 }
 
 .competition-logo img{
-    object-fit: scale-down;
-    height: 100%;
-    width: 100%;
+    object-fit: contain;
+    max-height: 100%;
+    max-width: 100%;
+    padding: 10px;
 }
-
 
 .team-flex{
     display: flex;

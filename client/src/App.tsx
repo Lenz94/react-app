@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Standings from "./components/Standings";
 import Leagues from "./components/Leagues";
+import TextScramble from "./components/TextScramble";
 
 import "./App.css";
 
@@ -12,11 +13,22 @@ function App() {
   };
 
   return (
-    <div className="container">
-      <h1 className="mt-4">Marcani - Football Data</h1>
-      <Leagues onSelectLeague={handleSelectLeague} />
-      {leagueId && <Standings key={leagueId} leagueId={leagueId} />}
-    </div>
+    <>
+      <div className="intro-container row vh-100">
+        <div className="col-12 col-md-6 intro">
+          <TextScramble></TextScramble>
+        </div>
+        <div className="col-12 col-md-6 football-data">
+          <h3 className="mt-4 mb-4 text-center">Leagues</h3>
+          <div>
+            <Leagues onSelectLeague={handleSelectLeague} />
+          </div>
+        </div>
+      </div>
+      <div className="container">
+        {leagueId && <Standings key={leagueId} leagueId={leagueId} />}
+      </div>
+    </>
   );
 }
 

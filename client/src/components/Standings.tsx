@@ -82,7 +82,7 @@ const Standings = ({ leagueId }: Props) => {
   if (!league) return <p>No data available</p>;
 
   return (
-    <>
+    <div className="standings-container">
       <img
         src={league.competition.emblem}
         alt={league.competition.name}
@@ -169,7 +169,7 @@ const Standings = ({ leagueId }: Props) => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
