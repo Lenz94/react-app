@@ -29,6 +29,7 @@ const Fixtures = ({ teamId, name }: Props) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  console.log(name);
   const fixturesUrl = "team-fixtures";
 
   useEffect(() => {
