@@ -21,6 +21,10 @@ const Standings = () => {
     setSelectedTeam((prev) => (prev?.id === id ? prev : { id, name }));
   };
 
+  const closeTeamSelection = () => {
+    setSelectedTeam(null);
+  };
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -59,9 +63,18 @@ const Standings = () => {
       }
     };
     fetchStandingsData();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <div className="spinner-border text-primary" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+    );
   if (error) return <p>Error: {error}</p>;
 
   if (!league) return <p>No data available</p>;
@@ -78,16 +91,19 @@ const Standings = () => {
         {league.season.endDate}
       </p>
       <div className="table-responsive">
-        <table className="table table-hover align-middle">
+        <table className="table table-hover w-auto align-middle text-center">
           <thead>
             <tr>
-              <th scope="col">Position</th>
-              <th scope="col">Team</th>
-              <th scope="col">Played</th>
-              <th scope="col">Won</th>
-              <th scope="col">Draw</th>
-              <th scope="col">Lost</th>
-              <th scope="col">Points</th>
+              <th scope="col">Pos.</th>
+              <th scope="col">Club</th>
+              <th scope="col">MP</th>
+              <th scope="col">W</th>
+              <th scope="col">D</th>
+              <th scope="col">L</th>
+              <th scope="col">GF</th>
+              <th scope="col">GA</th>
+              <th scope="col">GD</th>
+              <th scope="col">Pts</th>
             </tr>
           </thead>
           <tbody>
@@ -100,20 +116,23 @@ const Standings = () => {
                 style={{ cursor: "pointer" }}
               >
                 <th scope="row">{team.position}</th>
-                <td className="team-flex">
+                <th className="team-flex" scope="row">
                   <img
                     src={team.team.crest}
                     alt={team.team.name}
                     width="40"
                     height="40"
                   />
-                  {team.team.name}
-                </td>
+                  {team.team.shortName}
+                </th>
                 <td>{team.playedGames}</td>
                 <td>{team.won}</td>
                 <td>{team.draw}</td>
                 <td>{team.lost}</td>
-                <td>{team.points}</td>
+                <td>{team.goalsFor}</td>
+                <td>{team.goalsAgainst}</td>
+                <td>{team.goalDifference}</td>
+                <th>{team.points}</th>
               </tr>
             ))}
           </tbody>
@@ -121,11 +140,32 @@ const Standings = () => {
       </div>
 
       {selectedTeam && (
-        <Fixtures
-          key={selectedTeam.id}
-          teamId={selectedTeam.id}
-          name={selectedTeam.name}
-        />
+        <div
+          className="offcanvas offcanvas-end show"
+          tabIndex={-1}
+          id="offcanvas"
+          aria-labelledby="offcanvasLabel"
+        >
+          <div className="offcanvas-header text-center">
+            <h4 className="offcanvas-title" id="offcanvasLabel">
+              {selectedTeam.name} - Upcoming games
+            </h4>
+            <button
+              type="button"
+              className="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+              onClick={closeTeamSelection}
+            ></button>
+          </div>
+          <div className="offcanvas-body">
+            <Fixtures
+              key={selectedTeam.id}
+              teamId={selectedTeam.id}
+              name={selectedTeam.name}
+            />
+          </div>
+        </div>
       )}
     </>
   );

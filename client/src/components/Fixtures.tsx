@@ -65,16 +65,19 @@ const Fixtures = ({ teamId, name }: Props) => {
     };
   }, [teamId]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <div className="spinner-border text-primary" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+    );
   if (error) return <p>Error: {error}</p>;
 
   return (
     <div className="mt-4">
-      <h3 className="mb-4">{name} - Upcoming matches</h3>
-
       <div className="row">
         {fixtures?.matches.map((match) => (
-          <div key={match.id} className="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div key={match.id} className="col-12 col-sm-6 col-md-6 col-lg-6">
             <div className="card mb-4">
               <div className="card-header text-bg-dark text-center">
                 <strong>{match.competition.name}</strong>
