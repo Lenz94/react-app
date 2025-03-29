@@ -17,6 +17,13 @@ h1, h2, h3 {
     padding: 20px;
     color: #fff;
     display: flex;
+    height: 100vh;
+}
+
+.intro.league-selected{
+    transition: height 0.5s ease-in-out;
+    height: 70px;
+    z-index: 99;
 }
 
 .intro .scramble-text{
@@ -25,10 +32,17 @@ h1, h2, h3 {
     line-height: 1.2;
 }
 
+.intro.league-selected .scramble-text{
+    font-size: 24px;
+}
+
 .pointer{
     cursor: pointer;
 }
 
+.spinner-border{
+    margin: auto;
+}
 
 .football-data{
     background-color: rgb(15 23 42 / 1);
@@ -37,6 +51,10 @@ h1, h2, h3 {
     justify-content: center;
     display: flex;
     flex-direction: column;
+}
+
+.football-data.league-selected{
+    margin-top: -70px;
 }
 
 .competitions{
@@ -66,8 +84,11 @@ h1, h2, h3 {
 .min-w-200 {
     min-width: 200px;
   }
-/*
-.standings-container{}*/
+
+.standings-container{
+    margin: auto;
+    width: 100%;
+}
 
 .team-flex{
     display: flex;

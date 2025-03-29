@@ -14,19 +14,36 @@ function App() {
 
   return (
     <>
-      <div className="intro-container row vh-100">
-        <div className="col-12 col-md-6 intro">
-          <TextScramble></TextScramble>
-        </div>
-        <div className="col-12 col-md-6 football-data">
-          <h3 className="mt-4 mb-4 text-center">Leagues</h3>
-          <div>
-            <Leagues onSelectLeague={handleSelectLeague} />
+      <div className="row">
+        <div className={`intro-container ${leagueId ? "col-md-6" : "col-12"}`}>
+          <div className="row">
+            <div
+              className={`col-12 intro ${
+                leagueId ? "col-md-12 league-selected" : "col-md-6"
+              }`}
+            >
+              <h1 className="visually-hidden">Enzo Marcani</h1>
+              <TextScramble />
+            </div>
+
+            <div
+              className={`col-12 ${
+                leagueId ? "col-md-12 league-selected" : "col-md-6"
+              } vh-100 football-data text-center`}
+            >
+              <h3 className="mt-4 mb-4">Leagues</h3>
+              <div>
+                <Leagues onSelectLeague={handleSelectLeague} />
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="container mt-4 text-center">
-        {leagueId && <Standings key={leagueId} leagueId={leagueId} />}
+
+        {leagueId && (
+          <div className="col-12 col-md-6 d-flex text-center">
+            <Standings key={leagueId} leagueId={leagueId} />
+          </div>
+        )}
       </div>
     </>
   );

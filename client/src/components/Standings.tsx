@@ -93,7 +93,7 @@ const Standings = ({ leagueId }: Props) => {
         {league.season.endDate}
       </p>
       <div className="table-responsive">
-        <table className="table table-hover w-auto align-middle text-center">
+        <table className="table table-hover w-auto m-auto align-middle text-center">
           <thead>
             <tr>
               <th scope="col">Pos.</th>
