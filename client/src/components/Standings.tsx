@@ -94,10 +94,12 @@ const Standings = ({ leagueId }: Props) => {
       </p>
       <div className="table-responsive">
         <table className="table table-hover w-auto m-auto align-middle text-center">
-          <thead>
+          <thead className="sticky-top">
             <tr>
-              <th scope="col">Pos.</th>
-              <th className="min-w-200" scope="col">
+              <th className="sticky-column" scope="col">
+                Pos.
+              </th>
+              <th className="min-w-200 sticky-column left-45" scope="col">
                 Club
               </th>
               <th scope="col">MP</th>
@@ -115,12 +117,14 @@ const Standings = ({ leagueId }: Props) => {
               <tr
                 key={team.team.id}
                 onClick={() =>
-                  handleTeamSelection(team.team.id, team.team.name)
+                  handleTeamSelection(team.team.id, team.team.shortName)
                 }
                 style={{ cursor: "pointer" }}
               >
-                <th scope="row">{team.position}</th>
-                <th className="team-flex" scope="row">
+                <th className="sticky-column" scope="row">
+                  {team.position}
+                </th>
+                <th className="team-flex sticky-column left-45" scope="row">
                   <img
                     src={team.team.crest}
                     alt={team.team.name}
@@ -152,7 +156,7 @@ const Standings = ({ leagueId }: Props) => {
         >
           <div className="offcanvas-header text-center">
             <h4 className="offcanvas-title" id="offcanvasLabel">
-              {selectedTeam.name} - Upcoming games
+              {selectedTeam.name} - Matches
             </h4>
             <button
               type="button"

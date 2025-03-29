@@ -75,54 +75,44 @@ const Fixtures = ({ teamId, name }: Props) => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="mt-4">
-      <div className="row">
-        {fixtures?.matches.map((match) => (
-          <div key={match.id} className="col-12 col-sm-6 col-md-6 col-lg-6">
-            <div className="card mb-4">
-              <div className="card-header text-bg-dark text-center">
-                <strong>{match.competition.name}</strong>
-              </div>
-              <div className="card-body">
-                <div className="card-text match-fixture">
-                  <div className="match-fixture-teams">
-                    <div className="team-flex">
-                      <img
-                        src={match.homeTeam.crest}
-                        alt={match.homeTeam.name}
-                        height="30"
-                      ></img>
-                      {match.homeTeam.name}
-                    </div>
-                    <div className="team-flex">
-                      <img
-                        src={match.awayTeam.crest}
-                        alt={match.awayTeam.name}
-                        height="30"
-                      ></img>
-                      {match.awayTeam.name}
-                    </div>
+    <div className="row">
+      {fixtures?.matches.map((match) => (
+        <div key={match.id} className="col-12 col-sm-6 col-md-6 col-lg-6">
+          <div className="card mb-4">
+            <div className="card-header text-bg-dark text-center">
+              <strong>{match.competition.name}</strong>
+            </div>
+            <div className="card-body">
+              <div className="card-text match-fixture">
+                <div className="match-fixture-teams">
+                  <div className="team-flex">
+                    <img
+                      src={match.homeTeam.crest}
+                      alt={match.homeTeam.name}
+                      height="30"
+                    ></img>
+                    {match.homeTeam.shortName}
+                  </div>
+                  <div className="team-flex">
+                    <img
+                      src={match.awayTeam.crest}
+                      alt={match.awayTeam.name}
+                      height="30"
+                    ></img>
+                    {match.awayTeam.shortName}
                   </div>
                 </div>
               </div>
-              <div className="card-footer match-fixture-date-time text-center">
-                <div>
-                  <strong>Match #{match.matchday}</strong>
-                </div>
-                <div>{new Date(match.utcDate).toLocaleDateString()}</div>
+            </div>
+            <div className="card-footer match-fixture-date-time text-center">
+              <div>
+                <strong>Match #{match.matchday}</strong>
               </div>
+              <div>{new Date(match.utcDate).toLocaleDateString()}</div>
             </div>
           </div>
-        ))}
-      </div>
-      {/*<ul>
-        {fixtures?.matches.map((match) => (
-          <li key={match.id}>
-            {match.homeTeam.name} vs {match.awayTeam.name} on{" "}
-            {new Date(match.utcDate).toLocaleDateString()}
-          </li>
-        ))} 
-      </ul>*/}
+        </div>
+      ))}
     </div>
   );
 };

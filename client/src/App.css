@@ -86,8 +86,24 @@ h1, h2, h3 {
   }
 
 .standings-container{
-    margin: auto;
+    margin: auto auto 50px;
     width: 100%;
+}
+
+.table-responsive{
+    max-height: 400px; 
+    overflow-y: auto;
+}
+
+.sticky-column {
+    position: sticky;
+    left: 0;
+    background-color: #f8f9fa; /* Optional: set a background to make the sticky column more visible */
+    z-index: 1;
+}
+
+.left-45{
+    left: 45px;
 }
 
 .team-flex{
