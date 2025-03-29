@@ -81,6 +81,31 @@ h1, h2, h3 {
     padding: 10px;
 }
 
+.competition-logo img.CL{
+    position: relative;
+    top: -2px;
+}   
+
+.competition-logo img.ELC{
+    padding: 12px;
+}
+
+.competition-logo img.BL1{
+    padding: 15px;
+}
+
+.competition-logo img.SA{
+    padding: 0;
+} 
+
+.competition-logo img.PPL{
+    padding: 12px;
+} 
+
+
+.competition-logo img.PD{
+    padding: 15px;
+} 
 
 .min-w-200 {
     min-width: 200px;

@@ -23,6 +23,17 @@ const Leagues = ({ onSelectLeague }: LeaguesProps) => {
   const [error, setError] = useState<string | null>(null);
 
   const ignoredLeagues = ["BSA", "EC", "CLI", "WC"];
+  const customOrder = [
+    "CL",
+    "PD",
+    "PL",
+    "SA",
+    "BL1",
+    "FL1",
+    "DED",
+    "PPL",
+    "ELC",
+  ];
 
   useEffect(() => {
     let isMounted = true;
@@ -77,6 +88,12 @@ const Leagues = ({ onSelectLeague }: LeaguesProps) => {
     <div className="competitions">
       {competitions
         ?.filter((competition) => !ignoredLeagues.includes(competition.code))
+        .sort((a, b) => {
+          const indexA = customOrder.indexOf(a.code);
+          const indexB = customOrder.indexOf(b.code);
+          // If code is not found in customOrder, it will be treated as last
+          return indexA - indexB;
+        })
         .map((competition) => (
           <div key={competition.id} className="competition-logo">
             <img
@@ -85,7 +102,7 @@ const Leagues = ({ onSelectLeague }: LeaguesProps) => {
               alt={competition.name}
               height={70}
               width={70}
-              className="pointer"
+              className={`pointer ${competition.code}`}
             />
           </div>
         ))}
