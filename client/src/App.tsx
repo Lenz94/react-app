@@ -25,7 +25,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="container">
+      <div className="container mt-4 text-center">
         {leagueId && <Standings key={leagueId} leagueId={leagueId} />}
       </div>
     </>

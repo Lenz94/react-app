@@ -88,7 +88,7 @@ const Standings = ({ leagueId }: Props) => {
         alt={league.competition.name}
         height="100"
       ></img>
-      <p>
+      <p className="mt-2">
         <strong>Season:</strong> {league.season.startDate} /{" "}
         {league.season.endDate}
       </p>
@@ -97,7 +97,9 @@ const Standings = ({ leagueId }: Props) => {
           <thead>
             <tr>
               <th scope="col">Pos.</th>
-              <th scope="col">Club</th>
+              <th className="min-w-200" scope="col">
+                Club
+              </th>
               <th scope="col">MP</th>
               <th scope="col">W</th>
               <th scope="col">D</th>

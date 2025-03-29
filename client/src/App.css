@@ -62,6 +62,13 @@ h1, h2, h3 {
     padding: 10px;
 }
 
+
+.min-w-200 {
+    min-width: 200px;
+  }
+/*
+.standings-container{}*/
+
 .team-flex{
     display: flex;
     flex-direction: row;
