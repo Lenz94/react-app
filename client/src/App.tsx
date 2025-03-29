@@ -29,7 +29,7 @@ function App() {
             <div
               className={`col-12 ${
                 leagueId ? "col-md-12 league-selected" : "col-md-6"
-              } vh-100 football-data text-center`}
+              } football-data text-center`}
             >
               <h3 className="mt-4 mb-4">Leagues</h3>
               <div>
