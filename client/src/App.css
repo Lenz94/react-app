@@ -137,6 +137,13 @@ h1, h2, h3 {
     max-height: 100vh;
 }
 
+@media (max-width: 750px) { 
+    .standings-container{
+        margin: 20px auto 50px;
+    }
+}
+
+
 .table-responsive{
     max-height: 370px; 
     overflow-y: auto;
