@@ -124,14 +124,16 @@ const Standings = ({ leagueId }: Props) => {
                 <th className="sticky-column" scope="row">
                   {team.position}
                 </th>
-                <th className="team-flex sticky-column left-45" scope="row">
-                  <img
-                    src={team.team.crest}
-                    alt={team.team.name}
-                    width="40"
-                    height="40"
-                  />
-                  {team.team.shortName}
+                <th className="sticky-column left-45" scope="row">
+                  <div className="team-flex">
+                    <img
+                      src={team.team.crest}
+                      alt={team.team.name}
+                      width="40"
+                      height="40"
+                    />
+                    {team.team.shortName}
+                  </div>
                 </th>
                 <td>{team.playedGames}</td>
                 <td>{team.won}</td>
