@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { API_URL } from "../utils/config";
+import { API_URL, formatMatchDate } from "../utils/config";
 import { Match } from "../types";
 
 interface Props {
   teamId: number;
-  name: string;
 }
 
 interface Filters {
@@ -24,12 +23,10 @@ interface FixturesResponse {
   matches: Match[];
 }
 
-const Fixtures = ({ teamId, name }: Props) => {
+const Fixtures = ({ teamId }: Props) => {
   const [fixtures, setFixtures] = useState<FixturesResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
-  console.log(name);
   const fixturesUrl = "team-fixtures";
 
   useEffect(() => {
@@ -80,7 +77,9 @@ const Fixtures = ({ teamId, name }: Props) => {
         <div key={match.id} className="col-12 col-sm-6 col-md-6 col-lg-6">
           <div className="card mb-4">
             <div className="card-header text-bg-dark text-center">
-              <strong>{match.competition.name}</strong>
+              <strong className="match-competition">
+                {match.competition.name}
+              </strong>
             </div>
             <div className="card-body">
               <div className="card-text match-fixture">
@@ -108,7 +107,7 @@ const Fixtures = ({ teamId, name }: Props) => {
               <div>
                 <strong>Match #{match.matchday}</strong>
               </div>
-              <div>{new Date(match.utcDate).toLocaleDateString()}</div>
+              <div>{formatMatchDate(match.utcDate)}</div>
             </div>
           </div>
         </div>

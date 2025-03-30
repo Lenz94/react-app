@@ -190,6 +190,6 @@ h1, h2, h3 {
     gap: 10px;    
 }
 
-.match-fixture-date-time{
+.match-competition, .match-fixture-date-time{
     font-size: 0.7em;
 }
