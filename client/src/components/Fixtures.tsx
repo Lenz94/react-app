@@ -78,7 +78,9 @@ const Fixtures = ({ teamId }: Props) => {
           <div className="card mb-4">
             <div className="card-header text-bg-dark text-center">
               <strong className="match-competition">
-                {match.competition.name}
+                {match.competition.name === "Primera Division"
+                  ? "LaLiga EA Sports"
+                  : match.competition.name}
               </strong>
             </div>
             <div className="card-body">

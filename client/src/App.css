@@ -178,7 +178,7 @@ h1, h2, h3 {
 .team-flex{
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 7px;
     align-items: center;
 }
 
