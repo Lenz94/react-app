@@ -201,6 +201,11 @@ h1, h2, h3 {
 }
 
 @media (max-width: 750px) { 
+    .match-fixture .match-fixture-teams{
+        flex-direction: row;
+        gap: 20px;
+    }
+
     .offcanvas.offcanvas-end {
         top: 70px;
         border-top: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);

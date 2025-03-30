@@ -95,7 +95,7 @@ const Standings = ({ leagueId }: Props) => {
       </p>
       <div className="table-responsive">
         <table className="table table-hover w-auto m-auto align-middle text-center">
-          <thead className="sticky-top">
+          <thead className="table-dark sticky-top">
             <tr>
               <th className="sticky-column" scope="col">
                 Pos.
@@ -152,7 +152,7 @@ const Standings = ({ leagueId }: Props) => {
 
       {selectedTeam && (
         <div
-          className="offcanvas offcanvas-end show"
+          className="offcanvas text-bg-dark offcanvas-end show"
           tabIndex={-1}
           id="offcanvas"
           aria-labelledby="offcanvasLabel"
@@ -163,7 +163,7 @@ const Standings = ({ leagueId }: Props) => {
             </h4>
             <button
               type="button"
-              className="btn-close"
+              className="btn-close btn-close-white"
               data-bs-dismiss="offcanvas"
               aria-label="Close"
               onClick={closeTeamSelection}
