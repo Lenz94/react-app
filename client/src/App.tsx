@@ -31,7 +31,11 @@ function App() {
                 leagueId ? "col-md-12 league-selected" : "col-md-6"
               } football-data text-center`}
             >
-              <h3 className="mt-4 mb-4">Leagues</h3>
+              <h3 className="mt-4">Leagues</h3>
+              <p className="desc m-auto mt-4 mb-4">
+                Full-stack app with Node.js, Express, React, TypeScript, and
+                Football Data API integration.
+              </p>
               <div>
                 <Leagues onSelectLeague={handleSelectLeague} />
               </div>
@@ -40,7 +44,7 @@ function App() {
         </div>
 
         {leagueId && (
-          <div className="col-12 col-md-6 d-flex text-center">
+          <div className="col-12 col-md-6 d-flex bg-light text-center overflow-scroll">
             <Standings key={leagueId} leagueId={leagueId} />
           </div>
         )}

@@ -1,5 +1,6 @@
 body {
     font-family: 'Lato', sans-serif;
+    background-color: rgb(15 23 42 / 1);
 }
   
 h1, h2, h3 {
@@ -15,6 +16,11 @@ h1, h2, h3 {
 .intro{
     padding: 20px;
     display: flex;
+}
+
+
+.desc{
+    max-width: 300px;
 }
 
 @media (max-width: 750px) { 
@@ -192,4 +198,11 @@ h1, h2, h3 {
 
 .match-competition, .match-fixture-date-time{
     font-size: 0.7em;
+}
+
+@media (max-width: 750px) { 
+    .offcanvas.offcanvas-end {
+        top: 70px;
+        border-top: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
+    }
 }
