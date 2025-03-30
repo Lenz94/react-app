@@ -20,7 +20,7 @@ const cache = {};
 
 const RATE_LIMIT = 10; // Max 10 requests per minute per IP
 const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
-const CACHE_TTL = 60 * 1000; // Cache expires after 60 seconds
+const CACHE_TTL = 300 * 1000; // Cache expires after 5 minutes
 
 function rateLimiter(req, cacheKey) {
     const ip = req.ip;

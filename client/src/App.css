@@ -6,17 +6,14 @@ h1, h2, h3 {
     font-family: 'Merriweather', serif;
 }
 
-/*.intro-container{
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
-}*/
+.intro-container{
+    background-color: rgb(15 23 42 / 1);
+    color: #fff;
+}
 
 
 .intro{
-    background-color: rgb(15 23 42 / 1);
     padding: 20px;
-    color: #fff;
     display: flex;
 }
 
@@ -99,6 +96,11 @@ h1, h2, h3 {
     max-height: 100%;
     max-width: 100%;
     padding: 10px;
+    transition: transform 0.25s ease-in-out;
+}
+
+.competition-logo:hover img {
+    transform: scale(1.2);
 }
 
 .competition-logo img.CL{
