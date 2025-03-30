@@ -89,8 +89,9 @@ const Standings = ({ leagueId }: Props) => {
         height="100"
       ></img>
       <p className="mt-2">
-        <strong>Season:</strong> {league.season.startDate} /{" "}
-        {league.season.endDate}
+        <strong>Season:</strong>{" "}
+        {new Date(league.season.startDate).getFullYear()} /{" "}
+        {new Date(league.season.endDate).getFullYear()}
       </p>
       <div className="table-responsive">
         <table className="table table-hover w-auto m-auto align-middle text-center">
