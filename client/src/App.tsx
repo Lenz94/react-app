@@ -23,6 +23,7 @@ function App() {
               }`}
             >
               <h1 className="visually-hidden">Enzo Marcani</h1>
+              <h2 className="visually-hidden">Web Developer</h2>
               <TextScramble />
             </div>
 
