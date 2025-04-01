@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Standings from "./components/Standings";
 import Leagues from "./components/Leagues";
+import Scorers from "./components/Scorers";
 import TextScramble from "./components/TextScramble";
 import { IoFootball } from "react-icons/io5";
 import { GiBabyfootPlayers } from "react-icons/gi";
@@ -16,30 +17,48 @@ function App() {
   };
 
   const LeagueDetails = ({ league }: { league: League }) => {
+    const [view, setView] = useState<"standings" | "scorers">("standings");
+
     return (
-      <div className="col-12 col-md-6 d-flex bg-light text-center overflow-scroll">
-        <div className="m-auto mb-4 fit-content">
-          <div className="btn-group" role="group" aria-label="Basic example">
+      <div className="col-12 col-md-6 bg-light text-center overflow-scroll">
+        <div className="m-auto mb-4">
+          <div
+            className="btn-group fit-content"
+            role="group"
+            aria-label="Basic example"
+          >
             <button
               type="button"
-              className="btn btn-outline-dark btn-sm active"
+              className={`btn btn-outline-dark btn-sm ${
+                view === "standings" ? "active" : ""
+              }`}
+              onClick={() => setView("standings")}
             >
               <GiBabyfootPlayers size={40} />
             </button>
-            <button type="button" className="btn btn-outline-dark btn-sm">
+            <button
+              type="button"
+              className={`btn btn-outline-dark btn-sm ${
+                view === "scorers" ? "active" : ""
+              }`}
+              onClick={() => setView("scorers")}
+            >
               <IoFootball size={40} />
             </button>
           </div>
-
-          <div className="league-container">
-            <img src={league.emblem} alt={league.name} height="100" />
-            <p className="mt-2">
-              <strong>Season:</strong>{" "}
-              {new Date(league.currentSeason.startDate).getFullYear()} /{" "}
-              {new Date(league.currentSeason.endDate).getFullYear()}
-            </p>
+        </div>
+        <div className="league-container">
+          <img src={league.emblem} alt={league.name} height="100" />
+          <p className="mt-2">
+            <strong>Season:</strong>{" "}
+            {new Date(league.currentSeason.startDate).getFullYear()} /{" "}
+            {new Date(league.currentSeason.endDate).getFullYear()}
+          </p>
+          {view === "standings" ? (
             <Standings key={league.id} leagueId={league.code} />
-          </div>
+          ) : (
+            <Scorers key={league.code} leagueId={league.code} />
+          )}
         </div>
       </div>
     );

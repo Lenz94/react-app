@@ -27,6 +27,11 @@ export interface Team {
   shortName: string;
   tla: string;
   crest: string;
+  website: string;
+  founded: number;
+  clubColors: string;
+  venue: string;
+  lastUpdated: string;
 }
 
 export interface Table {
@@ -84,4 +89,24 @@ export interface League {
   type: string;
   emblem: string;
   currentSeason: Season;
+}
+
+export interface Player {
+  id: number;
+  name: string;
+  dateOfBirth: string;
+  nationality: string;
+  section: string;
+  position: string;
+  shirtNumber: number;
+  lastUpdated: string;
+}
+
+export interface Scorer {
+  player: Player;
+  team: Team;
+  playedMatches: number;
+  goals: number;
+  assists: number;
+  penalties: number;
 }

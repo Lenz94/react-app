@@ -98,6 +98,14 @@ app.get("/standings", async (req, res) => {
     fetchData(`https://api.football-data.org/v4/competitions/${competitionID}/standings`, res, `standings_${competitionID}`, req);
 });
 
+app.get("/scorers", async (req, res) => {
+    const competitionID = req.query.id;
+    if (!competitionID) {
+        return res.status(400).json({ message: "Missing competitionID parameter" });
+    }
+    fetchData(`https://api.football-data.org/v4/competitions/${competitionID}/scorers`, res, `scorers_${competitionID}`, req);
+});
+
 app.get("/team-fixtures", async (req, res) => {
     const teamId = req.query.id;
     if (!teamId) {
