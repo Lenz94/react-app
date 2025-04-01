@@ -18,6 +18,14 @@ h1, h2, h3 {
     display: flex;
 }
 
+.email-icon{
+    /* padding: 30px; */
+    border: 1px solid white;
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    display: flex
+}
 
 .desc{
     max-width: 300px;
@@ -52,6 +60,11 @@ h1, h2, h3 {
 
 .spinner-border{
     margin: auto;
+}
+
+.fit-content{
+    width: fit-content;
+    height: fit-content;
 }
 
 .football-data{
@@ -139,14 +152,14 @@ h1, h2, h3 {
     min-width: 200px;
   }
 
-.standings-container{
+.league-container{
     margin: 50px auto 50px;
     width: 100%;
     max-height: 100vh;
 }
 
 @media (max-width: 750px) { 
-    .standings-container{
+    .league-container{
         margin: 20px auto 50px;
     }
 }

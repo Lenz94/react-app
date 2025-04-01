@@ -1,20 +1,10 @@
 import { useEffect, useState } from "react";
-import { Area, Season } from "../types";
+import { League } from "../types";
 import { API_URL } from "../utils/config";
 
 type LeaguesProps = {
-  onSelectLeague: (id: string) => void;
+  onSelectLeague: (league: League) => void;
 };
-
-interface League {
-  id: number;
-  name: string;
-  area: Area;
-  code: string;
-  type: string;
-  emblem: string;
-  currentSeason: Season;
-}
 
 const Leagues = ({ onSelectLeague }: LeaguesProps) => {
   const [competitions, setCompetitions] = useState<League[] | null>(null);
@@ -97,7 +87,7 @@ const Leagues = ({ onSelectLeague }: LeaguesProps) => {
         .map((competition) => (
           <div key={competition.id} className="competition-logo">
             <img
-              onClick={() => onSelectLeague(competition.code)}
+              onClick={() => onSelectLeague(competition)}
               src={competition.emblem}
               alt={competition.name}
               height={70}

@@ -1,6 +1,5 @@
 export const API_URL = import.meta.env.VITE_API_URL;
 
-
 export const formatMatchDate = (utcDate: string): string => {
     const matchDate = new Date(utcDate);
     const now = new Date();
@@ -24,16 +23,16 @@ export const formatMatchDate = (utcDate: string): string => {
       return `Yesterday${timeString}`;
     } else {
       // Format: "Mon, 7 Apr, 21:00"
-      const options: Intl.DateTimeFormatOptions = {
+    const options: Intl.DateTimeFormatOptions = {
         weekday: "short", // Mon, Tue, etc.
         day: "numeric", // 7, 15, etc.
         month: "short", // Apr, May, etc.
-      };
-      const formattedDate = matchDate
+    };
+    const formattedDate = matchDate
         .toLocaleDateString("en-GB", options)
         .replace(",", ""); // Remove comma from date format
   
       return `${formattedDate}${timeString}`;
     }
-  };
+};
   

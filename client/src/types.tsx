@@ -75,3 +75,13 @@ export interface Match {
   awayTeam: Team;
   score: Score;
 }
+
+export interface League {
+  id: number;
+  name: string;
+  area: Area;
+  code: string;
+  type: string;
+  emblem: string;
+  currentSeason: Season;
+}

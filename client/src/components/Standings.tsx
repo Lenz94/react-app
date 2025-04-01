@@ -82,17 +82,7 @@ const Standings = ({ leagueId }: Props) => {
   if (!league) return <p>No data available</p>;
 
   return (
-    <div className="standings-container">
-      <img
-        src={league.competition.emblem}
-        alt={league.competition.name}
-        height="100"
-      ></img>
-      <p className="mt-2">
-        <strong>Season:</strong>{" "}
-        {new Date(league.season.startDate).getFullYear()} /{" "}
-        {new Date(league.season.endDate).getFullYear()}
-      </p>
+    <>
       <div className="table-responsive">
         <table className="table table-hover w-auto m-auto align-middle text-center">
           <thead className="table-dark sticky-top">
@@ -174,7 +164,7 @@ const Standings = ({ leagueId }: Props) => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
