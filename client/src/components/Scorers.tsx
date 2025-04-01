@@ -68,7 +68,7 @@ const Scorers = ({ leagueId }: Props) => {
               <th className="sticky-column" scope="col">
                 Pos.
               </th>
-              <th className="min-w-200 sticky-column left-45" scope="col">
+              <th className="min-w-200 sticky-column" scope="col">
                 Name
               </th>
               <th scope="col">Club</th>

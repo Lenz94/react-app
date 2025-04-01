@@ -7,6 +7,11 @@ h1, h2, h3 {
     font-family: 'Merriweather', serif;
 }
 
+.row{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
 .intro-container{
     background-color: rgb(15 23 42 / 1);
     color: #fff;
@@ -14,7 +19,6 @@ h1, h2, h3 {
 
 
 .intro{
-    padding: 20px;
     display: flex;
 }
 
@@ -69,7 +73,6 @@ h1, h2, h3 {
 
 .football-data{
     background-color: rgb(15 23 42 / 1);
-    padding: 20px;
     color: #fff;
     justify-content: center;
     display: flex;
@@ -182,10 +185,6 @@ h1, h2, h3 {
     left: 0;
     background-color: #f8f9fa;
     z-index: 1;
-}
-
-.left-45{
-    left: 45px;
 }
 
 .team-flex{

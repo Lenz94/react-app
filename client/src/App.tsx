@@ -21,7 +21,7 @@ function App() {
 
     return (
       <div className="col-12 col-md-6 bg-light text-center overflow-scroll">
-        <div className="m-auto mb-4">
+        <div className="m-auto mt-4 mb-4">
           <div
             className="btn-group fit-content"
             role="group"
