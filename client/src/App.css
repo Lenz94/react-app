@@ -17,6 +17,10 @@ h1, h2, h3 {
     color: #fff;
 }
 
+.dark-bg{
+    color: #fff;
+    background-color: rgb(15 23 42 / 1);
+}
 
 .intro{
     display: flex;
@@ -201,19 +205,21 @@ h1, h2, h3 {
     flex-direction: row;
     gap: 7px;
     align-items: center;
+    text-align: left;
+    line-height: 1em;
 }
 
 .match-fixture{
     display: flex;
     gap: 20px;
     font-size: 0.9em;
-    align-items: center;
     flex-direction: column;
 }
 
 .match-fixture .match-fixture-teams{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
     gap: 10px;    
 }
 
@@ -223,7 +229,7 @@ h1, h2, h3 {
 
 @media (max-width: 750px) { 
     .match-fixture .match-fixture-teams{
-        flex-direction: row;
+        /*flex-direction: column;*/
         gap: 20px;
     }
 
@@ -231,4 +237,8 @@ h1, h2, h3 {
         top: 70px;
         border-top: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
     }
+}
+
+.fixture-card-body{
+    border-left: var(--bs-card-border-width) solid var(--bs-card-border-color);
 }

@@ -74,42 +74,45 @@ const Fixtures = ({ teamId }: Props) => {
   return (
     <div className="row">
       {fixtures?.matches.map((match) => (
-        <div key={match.id} className="col-12 col-sm-6 col-md-6 col-lg-6">
-          <div className="card mb-4">
-            <div className="card-header text-bg-dark text-center">
-              <strong className="match-competition">
-                {match.competition.name === "Primera Division"
-                  ? "LaLiga EA Sports"
-                  : match.competition.name}
-              </strong>
+        <div key={match.id} className="col-12">
+          <div className="card flex-row mb-4">
+            <div className="card-header flex-shrink-0">
+              <img
+                src={match.competition.emblem}
+                alt={match.competition.name}
+                width="40"
+                height="40"
+              />
             </div>
-            <div className="card-body">
-              <div className="card-text match-fixture">
-                <div className="match-fixture-teams">
-                  <div className="team-flex">
-                    <img
-                      src={match.homeTeam.crest}
-                      alt={match.homeTeam.name}
-                      height="30"
-                    ></img>
-                    {match.homeTeam.shortName}
-                  </div>
-                  <div className="team-flex">
-                    <img
-                      src={match.awayTeam.crest}
-                      alt={match.awayTeam.name}
-                      height="30"
-                    ></img>
-                    {match.awayTeam.shortName}
+            <div className="d-flex flex-column flex-grow-1">
+              <div className="card-body fixture-card-body">
+                <div className="card-text match-fixture">
+                  <div className="match-fixture-teams">
+                    <div className="team-flex">
+                      <img
+                        src={match.homeTeam.crest}
+                        alt={match.homeTeam.name}
+                        height="30"
+                      ></img>
+                      {match.homeTeam.shortName}
+                    </div>
+                    <div className="team-flex">
+                      <img
+                        src={match.awayTeam.crest}
+                        alt={match.awayTeam.name}
+                        height="30"
+                      ></img>
+                      {match.awayTeam.shortName}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="card-footer match-fixture-date-time text-center">
-              <div>
-                <strong>Match #{match.matchday}</strong>
+              <div className="card-footer match-fixture-date-time text-center">
+                <div>
+                  <strong>Match #{match.matchday}</strong>
+                </div>
+                <div>{formatMatchDate(match.utcDate)}</div>
               </div>
-              <div>{formatMatchDate(match.utcDate)}</div>
             </div>
           </div>
         </div>

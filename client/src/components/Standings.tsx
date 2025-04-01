@@ -144,14 +144,14 @@ const Standings = ({ leagueId }: Props) => {
 
       {selectedTeam && (
         <div
-          className="offcanvas text-bg-dark offcanvas-end show"
+          className="offcanvas dark-bg offcanvas-end show"
           tabIndex={-1}
           id="offcanvas"
           aria-labelledby="offcanvasLabel"
         >
           <div className="offcanvas-header text-center">
             <h4 className="offcanvas-title" id="offcanvasLabel">
-              {selectedTeam.name} - Matches
+              {selectedTeam.name} - Fixture
             </h4>
             <button
               type="button"
