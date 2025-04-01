@@ -87,7 +87,7 @@ const Standings = ({ leagueId }: Props) => {
         <table className="table table-hover w-auto m-auto align-middle text-center">
           <thead className="table-dark sticky-top">
             <tr>
-              <th className="sticky-column" scope="col">
+              <th className="sticky-column border-top-left-radius" scope="col">
                 Pos.
               </th>
               <th className="min-w-200 sticky-column" scope="col">
@@ -100,7 +100,10 @@ const Standings = ({ leagueId }: Props) => {
               <th scope="col">GF</th>
               <th scope="col">GA</th>
               <th scope="col">GD</th>
-              <th className="sticky-column right" scope="col">
+              <th
+                className="sticky-column right border-top-right-radius"
+                scope="col"
+              >
                 Pts
               </th>
             </tr>

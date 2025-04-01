@@ -12,6 +12,15 @@ h1, h2, h3 {
     margin-right: 0 !important;
 }
 
+.border-top-left-radius{
+    border-top-left-radius: var(--bs-border-radius);
+}
+
+.border-top-right-radius{
+    border-top-right-radius: var(--bs-border-radius);
+}
+
+
 .intro-container{
     background-color: rgb(15 23 42 / 1);
     color: #fff;
@@ -20,6 +29,10 @@ h1, h2, h3 {
 .dark-bg{
     color: #fff;
     background-color: rgb(15 23 42 / 1);
+}
+
+.table-dark {
+    --bs-table-bg: rgb(15 23 42 / 1);
 }
 
 .intro{
@@ -161,6 +174,7 @@ h1, h2, h3 {
 
 .min-w-200 {
     min-width: 200px;
+    text-align: left;
 }
 
 .league-container{
