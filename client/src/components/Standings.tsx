@@ -100,7 +100,9 @@ const Standings = ({ leagueId }: Props) => {
               <th scope="col">GF</th>
               <th scope="col">GA</th>
               <th scope="col">GD</th>
-              <th scope="col">Pts</th>
+              <th className="sticky-column right" scope="col">
+                Pts
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -115,7 +117,7 @@ const Standings = ({ leagueId }: Props) => {
                 <th className="sticky-column" scope="row">
                   {team.position}
                 </th>
-                <th className="sticky-column left-45" scope="row">
+                <th className="sticky-column" scope="row">
                   <div className="team-flex">
                     <img
                       src={team.team.crest}
@@ -133,7 +135,7 @@ const Standings = ({ leagueId }: Props) => {
                 <td>{team.goalsFor}</td>
                 <td>{team.goalsAgainst}</td>
                 <td>{team.goalDifference}</td>
-                <th>{team.points}</th>
+                <th className="sticky-column right">{team.points}</th>
               </tr>
             ))}
           </tbody>
