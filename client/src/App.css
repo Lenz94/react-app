@@ -210,6 +210,11 @@ h3 {
   left: inherit;
 }
 
+
+.league-fixtures .card-header{
+    display: none;
+}
+
 .team-flex {
   display: flex;
   flex-direction: row;

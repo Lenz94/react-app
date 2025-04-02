@@ -73,7 +73,7 @@ function App() {
           ) : view === "scorers" ? (
             <Scorers key={league.code} leagueId={league.code} />
           ) : view === "matches" ? (
-            <>
+            <div className="league-fixtures">
               <div className="mb-2">
                 <strong>
                   MATCH DAY: {league.currentSeason.currentMatchday}
@@ -84,7 +84,7 @@ function App() {
                 id={league.code}
                 matchDay={league.currentSeason.currentMatchday}
               />
-            </>
+            </div>
           ) : null}
         </div>
       </div>

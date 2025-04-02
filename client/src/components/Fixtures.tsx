@@ -91,7 +91,10 @@ const Fixtures = ({ id, matchDay }: Props) => {
   return (
     <div className="row">
       {fixtures?.matches.map((match) => (
-        <div key={match.id} className="col-12">
+        <div
+          key={match.id}
+          className={`col-12 ${matchDay ? "col-md-6" : "col-md-12"}`}
+        >
           <div className="card flex-row mb-4">
             <div className="card-header flex-shrink-0">
               <img
