@@ -12,16 +12,15 @@ import "./App.css";
 
 function App() {
   const [league, setLeague] = useState<League | null>(null);
+  const [view, setView] = useState<"standings" | "scorers" | "matches">(
+    "standings"
+  );
 
   const handleSelectLeague = (selectedLeague: League) => {
     setLeague(selectedLeague);
   };
 
   const LeagueDetails = ({ league }: { league: League }) => {
-    const [view, setView] = useState<"standings" | "scorers" | "matches">(
-      "standings"
-    );
-
     return (
       <div className="col-12 col-md-6 bg-light text-center overflow-scroll">
         <div className="m-auto mt-4 mb-4">
@@ -49,15 +48,17 @@ function App() {
               <IoFootball size={40} />
             </button>
 
-            <button
-              type="button"
-              className={`btn btn-outline-dark btn-sm ${
-                view === "matches" ? "active" : ""
-              }`}
-              onClick={() => setView("matches")}
-            >
-              <GiSoccerField size={40} />
-            </button>
+            {league.code !== "CL" && (
+              <button
+                type="button"
+                className={`btn btn-outline-dark btn-sm ${
+                  view === "matches" ? "active" : ""
+                }`}
+                onClick={() => setView("matches")}
+              >
+                <GiSoccerField size={40} />
+              </button>
+            )}
           </div>
         </div>
         <div className="league-container">
@@ -72,7 +73,11 @@ function App() {
           ) : view === "scorers" ? (
             <Scorers key={league.code} leagueId={league.code} />
           ) : view === "matches" ? (
-            <Fixtures key={league.code} id={league.code} matchDay={30} />
+            <Fixtures
+              key={league.code}
+              id={league.code}
+              matchDay={league.currentSeason.currentMatchday}
+            />
           ) : null}
         </div>
       </div>
