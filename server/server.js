@@ -106,8 +106,22 @@ app.get("/scorers", async (req, res) => {
     fetchData(`https://api.football-data.org/v4/competitions/${competitionID}/scorers`, res, `scorers_${competitionID}`, req);
 });
 
+app.get("/league-fixtures", async (req, res) => {
+    const competitionCode = req.query.leagueCode;
+    const matchDay = req.query.matchDay;
+    if (!competitionCode) {
+        return res.status(400).json({ message: "Missing competitionCode parameter" });
+    }
+
+    if (!matchDay) {
+        return res.status(400).json({ message: "Missing matchDay parameter" });
+    }
+
+    fetchData(`https://api.football-data.org/v4/competitions/${competitionCode}/matches?matchday=${matchDay}`, res, `${competitionCode}_fixtures_${matchDay}`, req);
+});
+
 app.get("/team-fixtures", async (req, res) => {
-    const teamId = req.query.id;
+    const teamId = req.query.teamId;
     if (!teamId) {
         return res.status(400).json({ message: "Missing teamId parameter" });
     }

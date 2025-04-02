@@ -165,7 +165,7 @@ const Standings = ({ leagueId }: Props) => {
             ></button>
           </div>
           <div className="offcanvas-body">
-            <Fixtures key={selectedTeam.id} teamId={selectedTeam.id} />
+            <Fixtures key={selectedTeam.id} id={selectedTeam.id} />
           </div>
         </div>
       )}

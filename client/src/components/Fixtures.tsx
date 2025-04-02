@@ -3,7 +3,8 @@ import { API_URL, formatMatchDate } from "../utils/config";
 import { Match } from "../types";
 
 interface Props {
-  teamId: number;
+  id: number | string;
+  matchDay?: number | undefined;
 }
 
 interface Filters {
@@ -20,24 +21,40 @@ interface ResultSet {
 interface FixturesResponse {
   filters: Filters;
   resultSet: ResultSet;
-  matches: Match[];
+  matches: Match[] | [];
 }
 
-const Fixtures = ({ teamId }: Props) => {
+const Fixtures = ({ id, matchDay }: Props) => {
   const [fixtures, setFixtures] = useState<FixturesResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const fixturesUrl = "team-fixtures";
+
+  const getFixtureUrl = (
+    teamId: number | string,
+    matchDay: number | undefined
+  ) => {
+    let url: string = "";
+    if (typeof teamId === "number") {
+      url = `team-fixtures?teamId=${teamId}`;
+    } else {
+      url = `league-fixtures?leagueCode=${teamId}&matchDay=${matchDay}`;
+    }
+    return url;
+  };
 
   useEffect(() => {
     let isMounted = true;
 
-    const fetchFixtures = async (teamId: number) => {
+    const fetchFixtures = async (
+      teamId: number | string,
+      matchDay?: number | undefined
+    ) => {
       setLoading(true); // Reset loading before fetching
       setError(null);
+
       try {
         const response = await fetch(
-          API_URL + "/" + fixturesUrl + "?id=" + teamId
+          API_URL + "/" + getFixtureUrl(teamId, matchDay)
         );
 
         if (!response.ok) {
@@ -56,12 +73,12 @@ const Fixtures = ({ teamId }: Props) => {
       }
     };
 
-    fetchFixtures(teamId);
+    fetchFixtures(id, matchDay);
 
     return () => {
       isMounted = false;
     };
-  }, [teamId]);
+  }, [id, matchDay]);
 
   if (loading)
     return (

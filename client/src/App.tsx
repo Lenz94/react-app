@@ -2,9 +2,10 @@ import { useState } from "react";
 import Standings from "./components/Standings";
 import Leagues from "./components/Leagues";
 import Scorers from "./components/Scorers";
+import Fixtures from "./components/Fixtures";
 import TextScramble from "./components/TextScramble";
 import { IoFootball } from "react-icons/io5";
-import { GiBabyfootPlayers } from "react-icons/gi";
+import { GiBabyfootPlayers, GiSoccerField } from "react-icons/gi";
 import { League } from "./types";
 
 import "./App.css";
@@ -17,7 +18,9 @@ function App() {
   };
 
   const LeagueDetails = ({ league }: { league: League }) => {
-    const [view, setView] = useState<"standings" | "scorers">("standings");
+    const [view, setView] = useState<"standings" | "scorers" | "matches">(
+      "standings"
+    );
 
     return (
       <div className="col-12 col-md-6 bg-light text-center overflow-scroll">
@@ -45,6 +48,16 @@ function App() {
             >
               <IoFootball size={40} />
             </button>
+
+            <button
+              type="button"
+              className={`btn btn-outline-dark btn-sm ${
+                view === "matches" ? "active" : ""
+              }`}
+              onClick={() => setView("matches")}
+            >
+              <GiSoccerField size={40} />
+            </button>
           </div>
         </div>
         <div className="league-container">
@@ -56,9 +69,11 @@ function App() {
           </p>
           {view === "standings" ? (
             <Standings key={league.id} leagueId={league.code} />
-          ) : (
+          ) : view === "scorers" ? (
             <Scorers key={league.code} leagueId={league.code} />
-          )}
+          ) : view === "matches" ? (
+            <Fixtures key={league.code} id={league.code} matchDay={30} />
+          ) : null}
         </div>
       </div>
     );
