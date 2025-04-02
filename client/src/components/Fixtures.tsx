@@ -124,8 +124,8 @@ const Fixtures = ({ id, matchDay }: Props) => {
                   </div>
                   {match.score.fullTime.home !== null && (
                     <div className="match-fixture-score">
-                      <div>{match.score.fullTime.home}</div>
-                      <div>{match.score.fullTime.away}</div>
+                      <div className="score">{match.score.fullTime.home}</div>
+                      <div className="score">{match.score.fullTime.away}</div>
                     </div>
                   )}
                 </div>

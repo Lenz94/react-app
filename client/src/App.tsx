@@ -73,11 +73,18 @@ function App() {
           ) : view === "scorers" ? (
             <Scorers key={league.code} leagueId={league.code} />
           ) : view === "matches" ? (
-            <Fixtures
-              key={league.code}
-              id={league.code}
-              matchDay={league.currentSeason.currentMatchday}
-            />
+            <>
+              <div className="mb-2">
+                <strong>
+                  MATCH DAY: {league.currentSeason.currentMatchday}
+                </strong>
+              </div>
+              <Fixtures
+                key={league.code}
+                id={league.code}
+                matchDay={league.currentSeason.currentMatchday}
+              />
+            </>
           ) : null}
         </div>
       </div>

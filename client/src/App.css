@@ -241,6 +241,13 @@ h3 {
     justify-content: space-between;
 }
 
+.match-fixture-score .score{
+    height: 30px;
+    line-height: 30px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
 .match-competition,
 .match-fixture-date-time {
   font-size: 0.7em;
