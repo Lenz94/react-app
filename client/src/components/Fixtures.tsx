@@ -134,7 +134,7 @@ const Fixtures = ({ id, matchDay }: Props) => {
                 </div>
               </div>
               <div className="card-footer match-fixture-date-time text-center">
-                <div>
+                <div className="match-day">
                   <strong>Match #{match.matchday}</strong>
                 </div>
                 <div>{formatMatchDate(match.utcDate)}</div>

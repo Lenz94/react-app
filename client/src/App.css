@@ -211,7 +211,8 @@ h3 {
 }
 
 
-.league-fixtures .card-header{
+.league-fixtures .card-header,
+.league-fixtures .match-day{
     display: none;
 }
 
@@ -238,6 +239,7 @@ h3 {
   justify-content: space-around;
   /*align-items: center;*/
   gap: 10px;
+  font-weight: bold;
 }
 
 .match-fixture-score{
