@@ -122,6 +122,12 @@ const Fixtures = ({ id, matchDay }: Props) => {
                       {match.awayTeam.shortName}
                     </div>
                   </div>
+                  {match.score.fullTime.home !== null && (
+                    <div className="match-fixture-score">
+                      <div>{match.score.fullTime.home}</div>
+                      <div>{match.score.fullTime.away}</div>
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="card-footer match-fixture-date-time text-center">
