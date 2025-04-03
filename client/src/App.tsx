@@ -116,7 +116,7 @@ function App() {
           ) : view === "scorers" ? (
             <Scorers key={league.code} leagueId={league.code} />
           ) : view === "matches" ? (
-            <div className="league-fixtures">
+            <div className="league-fixtures pb-4">
               <div className="accordion" id="customAccordion">
                 {[...Array(leagueMatchdays[league.code])].map((_, index) => {
                   const matchDay = index + 1;

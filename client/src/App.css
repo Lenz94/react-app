@@ -214,6 +214,10 @@ h3 {
   max-height: 400px;
   overflow: scroll;
 }
+.league-fixtures{
+  max-height: 400px;
+  overflow: scroll;
+}
 
 .league-fixtures .card-header,
 .league-fixtures .match-day{
