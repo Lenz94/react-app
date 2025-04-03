@@ -210,6 +210,10 @@ h3 {
   left: inherit;
 }
 
+.accordion-body{
+  max-height: 400px;
+  overflow: scroll;
+}
 
 .league-fixtures .card-header,
 .league-fixtures .match-day{

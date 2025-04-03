@@ -90,7 +90,7 @@ const Fixtures = ({ id, matchDay }: Props) => {
 
   return (
     <div className="row">
-      {fixtures?.matches.map((match) => (
+      {fixtures?.matches?.map((match) => (
         <div
           key={match.id}
           className={`col-12 ${matchDay ? "col-md-6" : "col-md-12"}`}
