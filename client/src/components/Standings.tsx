@@ -109,38 +109,39 @@ const Standings = ({ leagueId }: Props) => {
             </tr>
           </thead>
           <tbody>
-            {league.standings[0].table.map((team) => (
-              <tr
-                key={team.team.id}
-                onClick={() =>
-                  handleTeamSelection(team.team.id, team.team.shortName)
-                }
-                style={{ cursor: "pointer" }}
-              >
-                <th className="sticky-column" scope="row">
-                  {team.position}
-                </th>
-                <th className="sticky-column" scope="row">
-                  <div className="team-flex">
-                    <img
-                      src={team.team.crest}
-                      alt={team.team.name}
-                      width="40"
-                      height="40"
-                    />
-                    {team.team.shortName}
-                  </div>
-                </th>
-                <td>{team.playedGames}</td>
-                <td>{team.won}</td>
-                <td>{team.draw}</td>
-                <td>{team.lost}</td>
-                <td>{team.goalsFor}</td>
-                <td>{team.goalsAgainst}</td>
-                <td>{team.goalDifference}</td>
-                <th className="sticky-column right">{team.points}</th>
-              </tr>
-            ))}
+            {league.standings &&
+              league.standings[0].table.map((team) => (
+                <tr
+                  key={team.team.id}
+                  onClick={() =>
+                    handleTeamSelection(team.team.id, team.team.shortName)
+                  }
+                  style={{ cursor: "pointer" }}
+                >
+                  <th className="sticky-column" scope="row">
+                    {team.position}
+                  </th>
+                  <th className="sticky-column" scope="row">
+                    <div className="team-flex">
+                      <img
+                        src={team.team.crest}
+                        alt={team.team.name}
+                        width="40"
+                        height="40"
+                      />
+                      {team.team.shortName}
+                    </div>
+                  </th>
+                  <td>{team.playedGames}</td>
+                  <td>{team.won}</td>
+                  <td>{team.draw}</td>
+                  <td>{team.lost}</td>
+                  <td>{team.goalsFor}</td>
+                  <td>{team.goalsAgainst}</td>
+                  <td>{team.goalDifference}</td>
+                  <th className="sticky-column right">{team.points}</th>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>
