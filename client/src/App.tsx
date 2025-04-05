@@ -36,8 +36,9 @@ function App() {
       SA: 38, // Serie A
       FL1: 34, // Ligue 1
       ELC: 46, // Championship
-      NLD: 34, // Eridivisie
+      DED: 34, // Eridivisie
       PPL: 34, // Primeira Liga
+      UCL: 2,
     };
 
     const toggleMatchDay = (matchDay: number) => {
@@ -92,7 +93,7 @@ function App() {
               <IoFootball size={40} />
             </button>
 
-            {league.code !== "CL" && league.code !== "DED" && (
+            {league.code !== "CL" && (
               <button
                 type="button"
                 className={`btn btn-outline-dark btn-sm ${

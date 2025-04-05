@@ -14,15 +14,15 @@ const Leagues = ({ onSelectLeague }: LeaguesProps) => {
 
   const ignoredLeagues = ["BSA", "EC", "CLI", "WC"];
   const customOrder = [
-    "CL",
     "PD",
     "PL",
-    "SA",
     "BL1",
     "FL1",
+    "SA",
     "DED",
     "PPL",
     "ELC",
+    "CL",
   ];
 
   useEffect(() => {
