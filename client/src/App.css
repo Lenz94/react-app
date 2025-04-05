@@ -1,6 +1,88 @@
+#leagueContent_PD {
+  --customLeague: #ff4b44;
+  --customText: #fff;
+}
+
+#leagueContent_PL {
+  --customLeague: #360b39;
+  --customText: #fff;
+  --customLeagueSB: #a782a9;
+}
+
+#leagueContent_CL {
+  --customLeague: #0E1E5B;
+  --customText: #fff;
+  --customLeagueSB: #091442;
+}
+
+#leagueContent_BL1 {
+  --customLeague: #D10214;
+  --customText: #fff;
+  --customLeagueSB: #D10214;
+}
+
+
+#leagueContent_SA {
+  --customLeague: #0032A0;
+  --customText: #fff;
+  --customLeagueSB: #0578FF;
+}
+
+#leagueContent_FL1 {
+  --customLeague: #091C3E;
+  --customText: #CDFB0A;
+  --customLeagueSB: #CDFB0A;
+}
+
+#leagueContent_DED {
+  --customLeague: #002F63;
+  --customText: #fff;
+  --customLeagueSB: #002F63;
+}
+
+
+#leagueContent_PPL {
+  --customLeague: #041740;
+  --customText: #fff;
+  --customLeagueSB: #3c4c74;
+}
+
+
+#leagueContent_ELC {
+  --customLeague: #283774;
+  --customText: #fff;
+  --customLeagueSB: #ea2120;
+}
+
 body {
   font-family: "Lato", sans-serif;
   background-color: rgb(15 23 42 / 1);
+}
+
+
+/*Styles for the Leagues*/
+.table thead th, .offcanvas{
+  background-color: var(--customLeague);
+  color: var(--customText);
+}
+
+.accordion-button, .accordion-button:not(.collapsed){
+  background-color: var(--customLeague);
+  color: var(--customText);
+}
+
+.btn-check:checked + .btn, :not(.btn-check) + .btn:active, .btn:first-child:active, .btn.active, .btn.show{
+  color: var(--customText);
+  background-color: var(--customLeague);
+  border-color: var(--customLeague);
+}
+
+.accordion-button::after, .accordion-button:not(.collapsed)::after{
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+}
+
+.accordion-button:focus {
+  box-shadow: none;
 }
 
 h1,
@@ -284,3 +366,5 @@ h3 {
 .fixture-card-body {
   border-left: var(--bs-card-border-width) solid var(--bs-card-border-color);
 }
+
+

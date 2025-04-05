@@ -147,7 +147,7 @@ const Standings = ({ leagueId }: Props) => {
 
       {selectedTeam && (
         <div
-          className="offcanvas dark-bg offcanvas-end show"
+          className="offcanvas offcanvas-end show"
           tabIndex={-1}
           id="offcanvas"
           aria-labelledby="offcanvasLabel"

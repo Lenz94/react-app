@@ -67,7 +67,10 @@ function App() {
     }, [openMatchDay]); // Trigger whenever `openMatchDay` changes
 
     return (
-      <div className="col-12 col-md-6 bg-light text-center overflow-scroll">
+      <div
+        id={`leagueContent_${league.code}`}
+        className="col-12 col-md-6 bg-light text-center overflow-scroll "
+      >
         <div className="m-auto mt-4 mb-4">
           <div className="btn-group fit-content" role="group">
             <button
@@ -89,7 +92,7 @@ function App() {
               <IoFootball size={40} />
             </button>
 
-            {league.code !== "CL" && (
+            {league.code !== "CL" && league.code !== "DED" && (
               <button
                 type="button"
                 className={`btn btn-outline-dark btn-sm ${
@@ -117,7 +120,7 @@ function App() {
             <Scorers key={league.code} leagueId={league.code} />
           ) : view === "matches" ? (
             <div className="league-fixtures pb-4">
-              <div className="accordion" id="customAccordion">
+              <div className="accordion">
                 {[...Array(leagueMatchdays[league.code])].map((_, index) => {
                   const matchDay = index + 1;
                   return (
