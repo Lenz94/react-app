@@ -56,6 +56,8 @@ html{
 body {
   font-family: "Lato", sans-serif;
   background-color: rgb(15 23 42);
+  background-image: url(me.png);
+  background-size: cover;
 }
 
 h1, h2, h3, .scramble-text {
