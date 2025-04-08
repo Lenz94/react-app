@@ -58,6 +58,8 @@ function App() {
         </div>
       </section>
 
+      <BallScroll />
+
       {/* SECTION 2: FOOTBALL APP */}
       <section className="section full-height d-flex">
         <div className="container-fluid my-auto">
@@ -102,8 +104,6 @@ function App() {
           </div>
         </div>
       </section>
-
-      <BallScroll />
     </>
   );
 }
