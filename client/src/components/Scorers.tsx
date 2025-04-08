@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { API_URL } from "../utils/config";
 import { Scorer } from "../types";
+import LoadingOverlay from "./ui/LoadingOverLay";
 
 interface Props {
   leagueId: string;
@@ -8,7 +9,6 @@ interface Props {
 
 const Scorers = ({ leagueId }: Props) => {
   const [leagueScorer, setLeagueScorers] = useState<Scorer[] | null>(null);
-
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -47,20 +47,21 @@ const Scorers = ({ leagueId }: Props) => {
     return () => {
       isMounted = false;
     };
-  }, []);
-
-  if (loading)
-    return (
-      <div className="spinner-border text-primary" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </div>
-    );
-  if (error) return <p>Error: {error}</p>;
-
-  if (!leagueScorer) return <p>No data available</p>;
+  }, [leagueId]);
 
   return (
     <>
+      <LoadingOverlay isLoading={loading} delay={100} minDisplayTime={1000} />
+
+      {error && (
+        <div className="text-center">
+          <p>Error: {error}. Please try again later.</p>
+        </div>
+      )}
+
+      {!loading && !leagueScorer && (
+        <p className="text-center">No data available.</p>
+      )}
       <div className="table-responsive">
         <table className="table table-hover w-auto m-auto align-middle text-center">
           <thead className="table-dark sticky-top">
@@ -83,12 +84,17 @@ const Scorers = ({ leagueId }: Props) => {
             </tr>
           </thead>
           <tbody>
-            {leagueScorer.map((scorer, index) => (
+            {leagueScorer?.map((scorer, index) => (
               <tr key={scorer.player.id}>
                 <th className="sticky-column" scope="row">
                   {index + 1}
                 </th>
-                <th className="sticky-column left-45">{scorer.player.name}</th>
+                <th
+                  className="sticky-column left-45"
+                  title={scorer.player.name}
+                >
+                  {scorer.player.name}
+                </th>
                 <td>
                   <div className="team-flex">
                     <img
@@ -96,6 +102,7 @@ const Scorers = ({ leagueId }: Props) => {
                       alt={scorer.team.name}
                       width="40"
                       height="40"
+                      title={scorer.team.name}
                     />
                     {scorer.team.shortName}
                   </div>

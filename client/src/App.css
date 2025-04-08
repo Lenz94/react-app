@@ -1,4 +1,9 @@
+html{
+  scroll-behavior: smooth;
+}
+
 /* ========== League Theme Variables ========== */
+
 #leagueContent_PD {
   --customLeague: #ff4b44;
   --customText: #fff;
@@ -50,12 +55,15 @@
 /* ========== Base Styles ========== */
 body {
   font-family: "Lato", sans-serif;
-  background-color: rgb(15 23 42 / 1);
-  color: #fff;
+  background-color: rgb(15 23 42);
 }
 
-h1, h2, h3 {
+h1, h2, h3, .scramble-text {
   font-family: "Merriweather", serif;
+}
+
+.scramble-text{
+  font-size: 30px;
 }
 
 .row {
@@ -64,10 +72,6 @@ h1, h2, h3 {
 
 .pointer {
   cursor: pointer;
-}
-
-.spinner-border {
-  margin: auto;
 }
 
 .fit-content {
@@ -79,11 +83,7 @@ h1, h2, h3 {
 .intro-container,
 .dark-bg,
 .table-dark {
-  background-color: rgb(15 23 42 / 1);
-}
-
-.intro-container,
-.dark-bg {
+  background-color: rgb(15 23 42);
   color: #fff;
 }
 
@@ -148,7 +148,7 @@ h1, h2, h3 {
 .competition-logo {
   display: block;
   border-radius: 100%;
-  border: 1px solid black;
+  border: 2px solid #bdc6c6;
   overflow: hidden;
   background: #fff;
 }
@@ -182,9 +182,9 @@ h1, h2, h3 {
 .btn:first-child:active,
 .btn.active,
 .btn.show {
-  background-color: var(--customLeague);
-  color: var(--customText);
-  border-color: var(--customLeague);
+  background-color: var(--customLeague, #222);
+  color: var(--customText, #fff);
+  border-color: var(--customLeague, #222);
 }
 
 .accordion-button::after,
@@ -209,20 +209,22 @@ h1, h2, h3 {
 
 /* ========== Tables and Grids ========== */
 .table-responsive {
-  max-height: 370px;
+  height: 370px;
   overflow-y: auto;
 }
 
+/*
 @media (min-height: 800px) {
   .table-responsive {
     max-height: 600px;
   }
-}
+}*/
 
 .sticky-column {
   position: sticky;
   left: 0;
-  background-color: #f8f9fa;
+  background-color: var(--customText, #fff);
+  color: var(--customLeague, #000);
   z-index: 1;
 }
 
@@ -238,6 +240,7 @@ h1, h2, h3 {
   justify-content: space-between;
   font-size: 0.9em;
   gap: 20px;
+  /*flex-wrap: wrap;*/
 }
 
 .match-fixture .match-fixture-teams {
@@ -265,11 +268,23 @@ h1, h2, h3 {
   font-size: 0.7em;
 }
 
+
 @media (max-width: 750px) {
+  /*
+  .match-fixture {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .match-fixture-score {
+    flex-direction: row;
+    gap: 10px;
+  }
+
   .match-fixture .match-fixture-teams {
     gap: 20px;
   }
-
+*/
   .offcanvas.offcanvas-end {
     top: 70px;
     border-top: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
@@ -291,14 +306,15 @@ h1, h2, h3 {
 }
 
 .league-container {
-  margin: 0 auto 50px;
+  /*margin: 0 auto 50px;*/
   width: 100%;
-  max-height: 100vh;
+  /*max-height: 60vh;*/
+  overflow-y: auto;
 }
 
 @media (max-width: 750px) {
   .league-container {
-    margin: 20px auto 50px;
+    margin: 20px auto 20px;
   }
 }
 
@@ -321,4 +337,187 @@ h1, h2, h3 {
 
 .desc {
   max-width: 300px;
+}
+
+.full-height {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.section {
+  padding: 2rem;
+}
+
+
+@media (max-width: 768px) {
+  .section {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 0.5rem;
+  }
+}
+
+.bg-light {
+  background-color: #f8f9fa;
+}
+
+/* Cards and containers */
+.content-box {
+  background-color: rgb(15 23 42);
+  color: #fff;
+  border: 1px solid #bdc6c6;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-box.light{
+  background-color: #fff;
+  color:rgb(15 23 42);
+}
+
+.content-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+.content-box .content-box{
+  color: #000;
+  background: white;
+  padding: 1rem;
+}
+
+@media (max-width: 768px) {
+  .content-box.league-data {
+    padding: 1rem;
+  }
+
+  .content-box.league-data .content-box{
+    padding: 1rem 0;
+  }
+}
+
+/* Links */
+a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+/* Responsive TextScramble fix */
+.text-center > div {
+  width: 100%;
+  max-width: 500px;
+}
+
+.btn-group .btn {
+  margin: 0 0.25rem;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:focus,
+.btn:active,
+.btn.active {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--customLeagueSB, #ccc);
+}
+
+.btn-group .btn:hover {
+  border: 2px solid var(--customLeagueSB, var(--customLeague));
+}
+
+
+.league-container {
+  position: relative; /* 👈 makes offcanvas position relative to this */
+}
+
+.offcanvas-inside-component {
+  position: absolute;
+}
+
+
+.placeholder {
+  animation: fadeIn 0.5s ease-in-out;
+  min-height: 300px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.ball {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ddd;
+  animation: bounce 1.2s infinite ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  to {
+    opacity: 0.7;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  color: #fff;
+  border-right: 2px solid #ccc;
+  animation: typing 2s steps(30, end), blink 0.75s step-end infinite;
+  max-width: 100%;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
 }

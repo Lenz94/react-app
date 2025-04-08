@@ -27,18 +27,19 @@ const LeagueDetails = ({ league, view, setView }: LeagueDetailsProps) => {
   return (
     <div
       id={`leagueContent_${league.code}`}
-      className="col-12 col-md-6 bg-light text-center overflow-scroll"
+      className="content-box text-center w-100 overflow-auto"
     >
-      <div className="m-auto mt-4 mb-4">
-        <div className="btn-group fit-content" role="group">
+      <div className="mb-4">
+        <div className="btn-group" role="group">
           <button
             type="button"
             className={`btn btn-outline-dark btn-sm ${
               view === "standings" ? "active" : ""
             }`}
             onClick={() => setView("standings")}
+            title="Standings"
           >
-            <GiBabyfootPlayers size={40} />
+            <GiBabyfootPlayers size={28} />
           </button>
           <button
             type="button"
@@ -46,8 +47,9 @@ const LeagueDetails = ({ league, view, setView }: LeagueDetailsProps) => {
               view === "scorers" ? "active" : ""
             }`}
             onClick={() => setView("scorers")}
+            title="Top Scorers"
           >
-            <IoFootball size={40} />
+            <IoFootball size={28} />
           </button>
           {league.code !== "CL" && (
             <button
@@ -56,15 +58,16 @@ const LeagueDetails = ({ league, view, setView }: LeagueDetailsProps) => {
                 view === "matches" ? "active" : ""
               }`}
               onClick={() => setView("matches")}
+              title="Fixtures"
             >
-              <GiSoccerField size={40} />
+              <GiSoccerField size={28} />
             </button>
           )}
         </div>
       </div>
 
-      <div className="league-container">
-        <img src={league.emblem} alt={league.name} height="100" />
+      <div className="league-container px-2">
+        <img src={league.emblem} alt={league.name} height="80" />
         <p className="mt-2">
           <strong>Season:</strong>{" "}
           {new Date(league.currentSeason.startDate).getFullYear()} /{" "}

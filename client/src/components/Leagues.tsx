@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { League } from "../types";
 import { API_URL } from "../utils/config";
+import LoadingOverlay from "./ui/LoadingOverLay";
 
 type LeaguesProps = {
   onSelectLeague: (league: League) => void;
@@ -64,39 +65,42 @@ const Leagues = ({ onSelectLeague }: LeaguesProps) => {
     };
   }, []);
 
-  if (loading)
-    return (
-      <div className="spinner-border text-primary" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </div>
-    );
-  if (error) return <p>Error: {error}</p>;
-
-  if (!competitions) return <p>No data available</p>;
-
   return (
-    <div className="competitions">
-      {competitions
-        ?.filter((competition) => !ignoredLeagues.includes(competition.code))
-        .sort((a, b) => {
-          const indexA = customOrder.indexOf(a.code);
-          const indexB = customOrder.indexOf(b.code);
-          // If code is not found in customOrder, it will be treated as last
-          return indexA - indexB;
-        })
-        .map((competition) => (
-          <div key={competition.id} className="competition-logo">
-            <img
-              onClick={() => onSelectLeague(competition)}
-              src={competition.emblem}
-              alt={competition.name}
-              height={70}
-              width={70}
-              className={`pointer ${competition.code}`}
-            />
-          </div>
-        ))}
-    </div>
+    <>
+      <LoadingOverlay isLoading={loading} delay={200} minDisplayTime={1000} />
+
+      {error && (
+        <div className="text-center">
+          <p>Error: {error}. Please try again later.</p>
+        </div>
+      )}
+
+      {!loading && !competitions && (
+        <p className="text-center">No data available.</p>
+      )}
+      <div className="competitions">
+        {competitions
+          ?.filter((competition) => !ignoredLeagues.includes(competition.code))
+          .sort((a, b) => {
+            const indexA = customOrder.indexOf(a.code);
+            const indexB = customOrder.indexOf(b.code);
+            // If code is not found in customOrder, it will be treated as last
+            return indexA - indexB;
+          })
+          .map((competition) => (
+            <div key={competition.id} className="competition-logo">
+              <img
+                onClick={() => onSelectLeague(competition)}
+                src={competition.emblem}
+                alt={competition.name}
+                height={70}
+                width={70}
+                className={`pointer ${competition.code}`}
+              />
+            </div>
+          ))}
+      </div>
+    </>
   );
 };
 

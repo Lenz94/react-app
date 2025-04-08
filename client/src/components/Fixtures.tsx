@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { API_URL, formatMatchDate } from "../utils/config";
+import LoadingOverlay from "./ui/LoadingOverLay";
 import { Match } from "../types";
 
 interface Props {
@@ -80,29 +81,35 @@ const Fixtures = ({ id, matchDay }: Props) => {
     };
   }, [id, matchDay]);
 
-  if (loading)
-    return (
-      <div className="spinner-border text-primary" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </div>
-    );
-  if (error) return <p>Error: {error}</p>;
-
   return (
     <div className="row">
+      <LoadingOverlay isLoading={loading} delay={100} minDisplayTime={1000} />
+
+      {error && (
+        <div className="text-center">
+          <p>Error: {error}. Please try again later.</p>
+        </div>
+      )}
+
+      {fixtures && fixtures.matches.length === 0 && (
+        <p className="text-center">No fixtures available for this matchday.</p>
+      )}
+
       {fixtures?.matches?.map((match) => (
         <div
           key={match.id}
           className={`col-12 ${matchDay ? "col-md-6" : "col-md-12"}`}
         >
-          <div className="card flex-row mb-4">
+          <div className="card flex-row mb-4 shadow-sm">
             <div className="card-header flex-shrink-0">
-              <img
-                src={match.competition.emblem}
-                alt={match.competition.name}
-                width="40"
-                height="40"
-              />
+              <div className="competition-logo">
+                <img
+                  src={match.competition.emblem}
+                  alt={match.competition.name}
+                  width="40"
+                  height="40"
+                />
+              </div>
             </div>
             <div className="d-flex flex-column flex-grow-1">
               <div className="card-body fixture-card-body">
@@ -113,7 +120,7 @@ const Fixtures = ({ id, matchDay }: Props) => {
                         src={match.homeTeam.crest}
                         alt={match.homeTeam.name}
                         height="30"
-                      ></img>
+                      />
                       {match.homeTeam.shortName}
                     </div>
                     <div className="team-flex">
@@ -121,7 +128,7 @@ const Fixtures = ({ id, matchDay }: Props) => {
                         src={match.awayTeam.crest}
                         alt={match.awayTeam.name}
                         height="30"
-                      ></img>
+                      />
                       {match.awayTeam.shortName}
                     </div>
                   </div>

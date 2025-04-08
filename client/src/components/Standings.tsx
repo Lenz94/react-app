@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { API_URL } from "../utils/config";
 import Fixtures from "./Fixtures";
 import { Area, Competition, Season, Standing } from "../types";
+import LoadingOverlay from "./ui/LoadingOverLay";
 
 interface Props {
   leagueId: string;
@@ -20,6 +21,8 @@ const Standings = ({ leagueId }: Props) => {
     id: number;
     name: string;
   } | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   const handleTeamSelection = (id: number, name: string) => {
     setSelectedTeam((prev) => (prev?.id === id ? prev : { id, name }));
@@ -29,9 +32,6 @@ const Standings = ({ leagueId }: Props) => {
     setSelectedTeam(null);
   };
 
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
   useEffect(() => {
     let isMounted = true;
 
@@ -39,9 +39,8 @@ const Standings = ({ leagueId }: Props) => {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch(API_URL + "/standings?id=" + leagueId);
+        const response = await fetch(`${API_URL}/standings?id=${leagueId}`);
         if (!response.ok) {
-          console.log(response);
           throw new Error("Network response was not ok");
         }
 
@@ -54,7 +53,7 @@ const Standings = ({ leagueId }: Props) => {
             throw new Error("Standings data is empty");
           }
         }
-      } catch (error) {
+      } catch (error: unknown) {
         if (isMounted) {
           setError(
             error instanceof Error ? error.message : "An unknown error occurred"
@@ -64,25 +63,25 @@ const Standings = ({ leagueId }: Props) => {
         if (isMounted) setLoading(false);
       }
     };
+
     fetchStandingsData();
 
     return () => {
       isMounted = false;
     };
-  }, []);
-
-  if (loading)
-    return (
-      <div className="spinner-border text-primary" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </div>
-    );
-  if (error) return <p>Error: {error}</p>;
-
-  if (!league) return <p>No data available</p>;
+  }, [leagueId]);
 
   return (
     <>
+      <LoadingOverlay isLoading={loading} delay={100} minDisplayTime={1000} />
+
+      {error && (
+        <div className="text-center">
+          <p>Error: {error}. Please try again later.</p>
+        </div>
+      )}
+
+      {!loading && !league && <p className="text-center">No data available.</p>}
       <div className="table-responsive">
         <table className="table table-hover w-auto m-auto align-middle text-center">
           <thead className="table-dark sticky-top">
@@ -109,46 +108,45 @@ const Standings = ({ leagueId }: Props) => {
             </tr>
           </thead>
           <tbody>
-            {league.standings &&
-              league.standings[0].table.map((team) => (
-                <tr
-                  key={team.team.id}
-                  onClick={() =>
-                    handleTeamSelection(team.team.id, team.team.shortName)
-                  }
-                  style={{ cursor: "pointer" }}
-                >
-                  <th className="sticky-column" scope="row">
-                    {team.position}
-                  </th>
-                  <th className="sticky-column" scope="row">
-                    <div className="team-flex">
-                      <img
-                        src={team.team.crest}
-                        alt={team.team.name}
-                        width="40"
-                        height="40"
-                      />
-                      {team.team.shortName}
-                    </div>
-                  </th>
-                  <td>{team.playedGames}</td>
-                  <td>{team.won}</td>
-                  <td>{team.draw}</td>
-                  <td>{team.lost}</td>
-                  <td>{team.goalsFor}</td>
-                  <td>{team.goalsAgainst}</td>
-                  <td>{team.goalDifference}</td>
-                  <th className="sticky-column right">{team.points}</th>
-                </tr>
-              ))}
+            {league?.standings[0]?.table.map((team) => (
+              <tr
+                key={team.team.id}
+                onClick={() =>
+                  handleTeamSelection(team.team.id, team.team.shortName)
+                }
+                style={{ cursor: "pointer" }}
+              >
+                <th className="sticky-column" scope="row">
+                  {team.position}
+                </th>
+                <th className="sticky-column" scope="row">
+                  <div className="team-flex">
+                    <img
+                      src={team.team.crest}
+                      alt={team.team.name}
+                      width="40"
+                      height="40"
+                    />
+                    {team.team.shortName}
+                  </div>
+                </th>
+                <td>{team.playedGames}</td>
+                <td>{team.won}</td>
+                <td>{team.draw}</td>
+                <td>{team.lost}</td>
+                <td>{team.goalsFor}</td>
+                <td>{team.goalsAgainst}</td>
+                <td>{team.goalDifference}</td>
+                <th className="sticky-column right">{team.points}</th>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
 
       {selectedTeam && (
         <div
-          className="offcanvas offcanvas-end show"
+          className={`offcanvas offcanvas-end show offcanvas-inside-component`}
           tabIndex={-1}
           id="offcanvas"
           aria-labelledby="offcanvasLabel"

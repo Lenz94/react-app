@@ -2,6 +2,8 @@ import { useState } from "react";
 import Leagues from "./components/Leagues";
 import TextScramble from "./components/TextScramble";
 import LeagueDetails from "./components/LeagueDetails";
+import LeaguePlaceholder from "./components/ui/LeaguePlaceholder";
+import BallScroll from "./components/ui/BallScroll";
 
 import { League } from "./types";
 import "./App.css";
@@ -17,38 +19,79 @@ function App() {
   };
 
   return (
-    <div className="row">
-      <div className={`intro-container ${league?.id ? "col-md-6" : "col-12"}`}>
-        <div className="row">
-          <div
-            className={`col-12 intro ${
-              league?.id ? "col-md-12 league-selected" : "col-md-6"
-            }`}
-          >
-            <h1 className="visually-hidden">Enzo Marcani</h1>
-            <h2 className="visually-hidden">Web Developer</h2>
-            <TextScramble />
-          </div>
-
-          <div
-            className={`col-12 ${
-              league?.id ? "col-md-12 league-selected" : "col-md-6"
-            } football-data text-center`}
-          >
-            <h3 className="mt-4">Leagues</h3>
-            <p className="desc m-auto mt-4 mb-4">
-              Full-stack app with Node.js, Express, React, TypeScript, and
-              Football Data API integration.
-            </p>
-            <Leagues onSelectLeague={handleSelectLeague} />
+    <>
+      {/* SECTION 1: INTRO */}
+      <section className="section full-height d-flex">
+        <div className="container-fluid my-auto">
+          <div className="row h-100">
+            <div className="col-md-6 mb-4 mb-md-0 d-flex align-items-center justify-content-center text-center">
+              <div className="content-box light">
+                <h1 className="visually-hidden">Enzo Marcani</h1>
+                <h2 className="visually-hidden">Web Developer</h2>
+                <TextScramble />
+              </div>
+            </div>
+            <div className="col-md-6 d-flex align-items-center justify-content-center text-center">
+              <div className="content-box light">
+                <h3>Hi, I'm Enzo 👋</h3>
+                <p>Web Developer passionate about football and clean code.</p>
+                <p>
+                  I build full-stack apps using React, TypeScript, Express, and
+                  Node.js.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {league && (
-        <LeagueDetails league={league} view={view} setView={setView} />
-      )}
-    </div>
+      {/* SECTION 2: FOOTBALL APP */}
+      <section className="section full-height d-flex">
+        <div className="container-fluid my-auto">
+          <div className="row h-100">
+            <div className="col-md-6 mb-4 mb-md-0 d-flex align-items-center justify-content-center">
+              <div className="content-box text-start w-100 px-4">
+                <h3>⚽ Football Data App</h3>
+                <p>
+                  Built with React, TypeScript, Express, and Node.js. This is a
+                  full-stack football stats app that fetches real-time data from
+                  the{" "}
+                  <a
+                    href="https://www.football-data.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Football-Data.org
+                  </a>{" "}
+                  API.
+                </p>
+                <p>
+                  Users can explore league tables, fixtures, and stats from top
+                  European competitions.
+                </p>
+                <Leagues onSelectLeague={handleSelectLeague} />
+              </div>
+            </div>
+
+            <div className="col-md-6 d-flex align-items-center justify-content-center">
+              <div className="content-box w-100 league-data">
+                {league ? (
+                  <LeagueDetails
+                    league={league}
+                    view={view}
+                    setView={setView}
+                  />
+                ) : (
+                  <LeaguePlaceholder />
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <BallScroll />
+    </>
   );
 }
 

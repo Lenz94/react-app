@@ -20,7 +20,6 @@ const MatchDayAccordion = ({
   const toggleMatchDay = (matchDay: number) => {
     setOpenMatchDay((prev) => {
       const newOpenMatchDay = prev === matchDay ? null : matchDay;
-
       if (newOpenMatchDay !== null) {
         setTimeout(() => {
           matchDayRefs.current[newOpenMatchDay]?.scrollIntoView({
@@ -29,7 +28,6 @@ const MatchDayAccordion = ({
           });
         }, 100);
       }
-
       return newOpenMatchDay;
     });
   };
@@ -74,6 +72,7 @@ const MatchDayAccordion = ({
                   openMatchDay === matchDay ? "show" : ""
                 }`}
                 data-bs-parent="#customAccordion"
+                style={{ transition: "height 0.3s ease" }} // Added transition for smooth accordion opening/closing
               >
                 <div className="accordion-body">
                   {openMatchDay === matchDay && (
