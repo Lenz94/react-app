@@ -58,7 +58,7 @@ function App() {
         <div className="container-fluid my-auto">
           <div className="row h-100">
             <div className="col-md-6 mb-4 mb-md-0 d-flex align-items-center justify-content-center text-center">
-              <div className="content-box light intro">
+              <div className="content-box no-bg intro">
                 <h1 className="visually-hidden">Enzo Marcani</h1>
                 <h2 className="visually-hidden">Web Developer</h2>
                 <TextScramble />

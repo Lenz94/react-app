@@ -424,6 +424,10 @@ p{
   color:rgb(15 23 42);
 }
 
+.content-box.no-bg{
+  background: none;
+}
+
 .content-box:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
