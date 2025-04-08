@@ -93,6 +93,7 @@ body::after {
 
 h1, h2, h3, .scramble-text {
   font-family: "Merriweather", serif;
+  font-weight: 700;
 }
 
 p{
@@ -101,7 +102,6 @@ p{
 
 .scramble-text{
   font-size: 30px;
-  font-weight: 700;
 }
 
 .row {
@@ -751,7 +751,7 @@ a:hover {
   background-color: rgb(15 23 42);
   color: #fff;
   text-align: left;
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding: 10px 20px;
   cursor: pointer;
   position: relative;
@@ -770,30 +770,31 @@ a:hover {
 
 .chat-answer {
   background-color: #f1f1f1;
-  padding: 15px;
+  
   border-radius: 10px;
-  animation: slideIn 0.5s ease-out;
   max-height: 0;
   overflow: hidden;
   opacity: 0;
   transform: translateY(-20px);
-  transition: all 0.5s ease;
 }
 
 .chat-answer.active {
+  padding: 15px;
+  animation: slideIn 1s ease-out;
   max-height: 500px;
   opacity: 1;
   transform: translateY(0);
+  /*transition: all 1s ease;*/
 }
 
 /* Animation for chat answer */
 @keyframes slideIn {
   from {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(0px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0px);
   }
 }
