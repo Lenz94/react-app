@@ -34,6 +34,14 @@ function App() {
             <div className="col-md-6 d-flex align-items-center justify-content-center text-center">
               <div className="content-box light">
                 <h3>Hi, I'm Enzo 👋</h3>
+                <div className="profile-picture mb-4">
+                  <img
+                    src="/profile.jpg"
+                    alt="Enzo Marcani"
+                    height={70}
+                    width={70}
+                  />
+                </div>
                 <p>
                   Web Developer with 9 years' experience delivering custom
                   full-stack solutions — highly skilled in JavaScript,
