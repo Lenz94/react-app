@@ -368,6 +368,7 @@ h1, h2, h3, .scramble-text {
 
 /* Cards and containers */
 .content-box {
+  position: relative;
   background-color: rgb(15 23 42);
   color: #fff;
   border: 1px solid #bdc6c6;
@@ -375,6 +376,7 @@ h1, h2, h3, .scramble-text {
   border-radius: 1rem;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
 }
 
 .content-box.light{
