@@ -89,7 +89,7 @@ const TextScramble = () => {
     };
 
     nextPhrase(); // Initial scramble
-    const intervalId = setInterval(nextPhrase, 3000); // Change text every 3s
+    const intervalId = setInterval(nextPhrase, 7000); // Change text every 7s
 
     // Cleanup the interval when component unmounts
     return () => clearInterval(intervalId);
