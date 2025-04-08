@@ -67,7 +67,7 @@ const Leagues = ({ onSelectLeague }: LeaguesProps) => {
 
   return (
     <>
-      <LoadingOverlay isLoading={loading} delay={200} minDisplayTime={1000} />
+      <LoadingOverlay isLoading={loading} delay={400} minDisplayTime={1000} />
 
       {error && (
         <div className="text-center">
