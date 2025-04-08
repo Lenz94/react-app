@@ -436,6 +436,12 @@ p{
 }
 
 @media (max-width: 768px) {
+  .content-box.intro{
+    background: none;
+    color: #fff;
+    border: none;
+  }
+
   .content-box.league-data {
     padding: 1rem;
   }
