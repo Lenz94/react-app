@@ -64,6 +64,7 @@ h1, h2, h3, .scramble-text {
 
 .scramble-text{
   font-size: 30px;
+  font-weight: 700;
 }
 
 .row {
