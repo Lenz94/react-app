@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { IoFootballOutline } from "react-icons/io5"; // Ball icon
 import { TbPlayFootball } from "react-icons/tb"; // Foot icon
-import "./BallScroll.css";
 
 const BallScroll = () => {
   const [isKicked, setIsKicked] = useState(false);

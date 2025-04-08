@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import "./LoadingOverLay.css";
 
 interface Props {
   isLoading: boolean;
