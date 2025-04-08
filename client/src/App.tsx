@@ -46,11 +46,15 @@ function App() {
                   Web Developer with 9 years' experience delivering custom
                   full-stack solutions — highly skilled in JavaScript,
                   TypeScript, and modern frameworks like React, Angular, and
-                  Vue. I combine technical expertise with a designer’s eye to
-                  build fast, user-friendly, and scalable web apps. Experienced
-                  across the stack with Node.js, Go and PHP. As a big football
-                  fan, I enjoy creating projects that bring my passion for
-                  sports and technology together.
+                  Vue.
+                </p>
+                <p>
+                  {" "}
+                  I combine technical expertise with a designer’s eye to build
+                  fast, user-friendly, and scalable web apps. Experienced across
+                  the stack with Node.js, Go and PHP. As a big football fan, I
+                  enjoy creating projects that bring my passion for sports and
+                  technology together.
                 </p>
               </div>
             </div>
