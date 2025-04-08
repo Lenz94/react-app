@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./LoadingOverlay.css";
+import "./LoadingOverLay.css";
 
 interface Props {
   isLoading: boolean;
@@ -8,7 +8,7 @@ interface Props {
   debug?: boolean; // New debug flag to keep the loader visible forever
 }
 
-const LoadingOverlay = ({
+const LoadingOverLay = ({
   isLoading,
   delay = 300,
   minDisplayTime = 500,
@@ -53,4 +53,4 @@ const LoadingOverlay = ({
   );
 };
 
-export default LoadingOverlay;
+export default LoadingOverLay;
