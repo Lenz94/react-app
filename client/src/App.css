@@ -108,6 +108,12 @@ p{
   margin: 0 !important;
 }
 
+@media (max-width: 750px) {
+  .col-md-6{
+    padding: 0;
+  }
+}
+
 .pointer {
   cursor: pointer;
 }
