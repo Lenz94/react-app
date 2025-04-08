@@ -34,10 +34,15 @@ function App() {
             <div className="col-md-6 d-flex align-items-center justify-content-center text-center">
               <div className="content-box light">
                 <h3>Hi, I'm Enzo 👋</h3>
-                <p>Web Developer passionate about football and clean code.</p>
                 <p>
-                  I build full-stack apps using React, TypeScript, Express, and
-                  Node.js.
+                  Web Developer with 9 years' experience delivering custom
+                  full-stack solutions — highly skilled in JavaScript,
+                  TypeScript, and modern frameworks like React, Angular, and
+                  Vue. I combine technical expertise with a designer’s eye to
+                  build fast, user-friendly, and scalable web apps. Experienced
+                  across the stack with Node.js, Go and PHP. As a big football
+                  fan, I enjoy creating projects that bring my passion for
+                  sports and technology together.
                 </p>
               </div>
             </div>
