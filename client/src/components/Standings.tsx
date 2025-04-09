@@ -89,7 +89,7 @@ const Standings = ({ leagueId }: Props) => {
               <th className="sticky-column border-top-left-radius" scope="col">
                 Pos.
               </th>
-              <th className="min-w-200 sticky-column" scope="col">
+              <th className="sticky-column" scope="col">
                 Club
               </th>
               <th scope="col">MP</th>

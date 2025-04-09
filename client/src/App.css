@@ -255,6 +255,7 @@ p{
 .table-responsive {
   height: 370px;
   overflow-y: auto;
+  font-size: 12px;
 }
 
 .sticky-column {
@@ -296,7 +297,7 @@ p{
 .match-fixture-score .score {
   height: 30px;
   line-height: 30px;
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 600;
 }
 
@@ -307,21 +308,6 @@ p{
 
 
 @media (max-width: 750px) {
-  /*
-  .match-fixture {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .match-fixture-score {
-    flex-direction: row;
-    gap: 10px;
-  }
-
-  .match-fixture .match-fixture-teams {
-    gap: 20px;
-  }
-*/
   .offcanvas.offcanvas-end {
     top: 70px;
     border-top: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
@@ -360,6 +346,7 @@ p{
   gap: 7px;
   text-align: left;
   line-height: 1em;
+  font-size: 12px;
 }
 
 .email-icon {
