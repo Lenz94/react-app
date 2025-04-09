@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IoFootballOutline } from "react-icons/io5"; // Ball icon
+import { IoFootballSharp } from "react-icons/io5"; // Ball icon
 import { TbPlayFootball } from "react-icons/tb"; // Foot icon
 
 const BallScroll = () => {
@@ -22,10 +22,8 @@ const BallScroll = () => {
         className={`scroll-ball ${isKicked ? "kick" : ""}`}
         onClick={handleScroll}
       >
-        {/* Ball Icon */}
-        <IoFootballOutline className="ball-icon" size={40} color="#000000" />
+        <IoFootballSharp className="ball-icon" size={40} color="#000000" />
 
-        {/* Foot icon that appears on hover */}
         <TbPlayFootball
           className={`foot-icon ${isKicked ? "kicked" : ""}`}
           size={40}

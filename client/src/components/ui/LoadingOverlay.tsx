@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { IoFootballSharp } from "react-icons/io5";
 
 interface Props {
   isLoading: boolean;
@@ -46,7 +47,11 @@ const LoadingOverLay = ({
 
   return (
     <div className="loading-overlay">
-      <img src="/football.svg" alt="Loading..." className="loading-icon" />
+      <IoFootballSharp
+        className="loading-icon animate-spin"
+        size={40}
+        color="#333"
+      />
       <p>Loading...</p>
     </div>
   );

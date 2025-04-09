@@ -72,9 +72,7 @@ const Scorers = ({ leagueId }: Props) => {
               <th className="sticky-column" scope="col">
                 Name
               </th>
-              <th className="min-w-200" scope="col">
-                Club
-              </th>
+              <th scope="col">Club</th>
               <th
                 className="sticky-column right border-top-right-radius"
                 scope="col"

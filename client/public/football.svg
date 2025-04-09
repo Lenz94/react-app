@@ -1,5 +1,0 @@
-<!-- football.svg -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 496" fill="white">
-  <circle cx="248" cy="248" r="248" fill="#333" />
-  <path d="M248 112l64 40-24 72h-80l-24-72 64-40zm0 272l64-40-24-72h-80l-24 72 64 40zM136 192l48 16 16 48-40 32-40-32 16-48zm224 0l-48 16-16 48 40 32 40-32-16-48z" fill="#fff"/>
-</svg>
