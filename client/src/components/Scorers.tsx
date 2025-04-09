@@ -73,6 +73,8 @@ const Scorers = ({ leagueId }: Props) => {
                 Name
               </th>
               <th scope="col">Club</th>
+              <th scope="col">Penalties</th>
+              <th scope="col">Assists</th>
               <th
                 className="sticky-column right border-top-right-radius"
                 scope="col"
@@ -105,6 +107,8 @@ const Scorers = ({ leagueId }: Props) => {
                     {scorer.team.shortName}
                   </div>
                 </td>
+                <td>{scorer.penalties ?? 0}</td>
+                <td>{scorer.assists ?? 0}</td>
                 <th className="sticky-column right">{scorer.goals}</th>
               </tr>
             ))}
