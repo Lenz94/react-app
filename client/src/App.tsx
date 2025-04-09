@@ -45,9 +45,9 @@ function App() {
 
   const handleToggleQuestion = (index: number) => {
     if (activeQuestion === index) {
-      setActiveQuestion(null); // Close the question if it is already active
+      setActiveQuestion(null);
     } else {
-      setActiveQuestion(index); // Open the clicked question
+      setActiveQuestion(index);
     }
   };
 
@@ -123,8 +123,8 @@ function App() {
                   API.
                 </p>
                 <p>
-                  Users can explore league tables, fixtures, and stats from top
-                  European competitions.
+                  Select a league below to explore standings, fixtures, and
+                  stats from top European competitions.
                 </p>
                 <Leagues onSelectLeague={handleSelectLeague} />
               </div>
