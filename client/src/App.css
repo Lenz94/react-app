@@ -350,9 +350,7 @@ p{
 }
 
 .league-container {
-  /*margin: 0 auto 50px;*/
   width: 100%;
-  /*max-height: 60vh;*/
   overflow-y: auto;
 }
 
@@ -497,15 +495,9 @@ a:hover {
   border: 2px solid var(--customLeagueSB, var(--customLeague));
 }
 
-
-.league-container {
-  position: relative; /* 👈 makes offcanvas position relative to this */
-}
-
 .offcanvas-inside-component {
   position: absolute;
 }
-
 
 .placeholder {
   animation: fadeIn 0.5s ease-in-out;

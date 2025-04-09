@@ -66,7 +66,7 @@ const LeagueDetails = ({ league, view, setView }: LeagueDetailsProps) => {
         </div>
       </div>
 
-      <div className="league-container px-2 pt-2">
+      <div className="league-container px-2">
         <img src={league.emblem} alt={league.name} height="80" />
         <p className="mt-2">
           <strong>Season:</strong>{" "}
