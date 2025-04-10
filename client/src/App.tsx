@@ -124,10 +124,13 @@ function App() {
 
       <BallScroll />
 
-      <section id="football-data-app" className="section full-height d-flex">
+      <section className="section full-height d-flex">
         <div className="container-fluid my-auto">
           <div className="row h-100">
-            <div className="col-md-6 mb-4 mb-md-0 d-flex align-items-center justify-content-center">
+            <div
+              id="football-data-app"
+              className="col-md-6 mb-4 mb-md-0 d-flex align-items-center justify-content-center"
+            >
               <div className="content-box text-start w-100 px-4">
                 <h3>⚽ Football Data App</h3>
                 <p>
