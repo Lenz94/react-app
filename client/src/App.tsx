@@ -38,6 +38,10 @@ function App() {
       answer:
         "I thrive on projects that challenge both my technical skills and creativity, especially those that allow me to combine my passion for technology and football. I love developing solutions that bring innovative ideas to life, whether it’s a web app, a CRM system, or a sports-related project.",
     },
+    {
+      question: "Where are you based and what languages do you speak?",
+      answer: "Stockholm, Sweden. I speak fluent Swedish, English & Spanish.",
+    },
   ];
 
   const handleSelectLeague = (selectedLeague: League) => {
