@@ -58,7 +58,6 @@ function App() {
 
   return (
     <>
-      {/* SECTION 1: INTRO */}
       <section className="section full-height d-flex">
         <div className="container-fluid my-auto">
           <div className="row h-100">
@@ -125,8 +124,7 @@ function App() {
 
       <BallScroll />
 
-      {/* SECTION 2: FOOTBALL APP */}
-      <section className="section full-height d-flex">
+      <section id="football-data-app" className="section full-height d-flex">
         <div className="container-fluid my-auto">
           <div className="row h-100">
             <div className="col-md-6 mb-4 mb-md-0 d-flex align-items-center justify-content-center">

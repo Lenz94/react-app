@@ -10,7 +10,13 @@ const BallScroll = () => {
 
     // Wait for the animation to finish, then scroll
     setTimeout(() => {
-      window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+      const footballDataApp = document.getElementById("football-data-app");
+
+      if (footballDataApp) {
+        footballDataApp.scrollIntoView({ behavior: "smooth", block: "end" });
+      }
+      /*
+      window.scrollTo({ top: window.innerHeight, behavior: "smooth" });*/
       setIsKicked(false); // Reset kick state
     }, 200); // Duration of the animation
   };
