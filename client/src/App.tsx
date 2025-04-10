@@ -4,6 +4,7 @@ import TextScramble from "./components/TextScramble";
 import LeagueDetails from "./components/LeagueDetails";
 import LeaguePlaceholder from "./components/ui/LeaguePlaceholder";
 import BallScroll from "./components/ui/BallScroll";
+import { FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 import { League } from "./types";
 import "./App.css";
@@ -67,13 +68,31 @@ function App() {
             <div className="col-md-6 d-flex align-items-center justify-content-center text-center">
               <div className="content-box light">
                 <h3>Hi, I'm Enzo 👋</h3>
-                <div className="profile-picture mb-4">
+                <div className="profile-picture">
                   <img
                     src="/profile.jpg"
                     alt="Enzo Marcani"
                     height={70}
                     width={70}
                   />
+                </div>
+                <div className="social-links d-flex justify-content-center gap-3 mb-4">
+                  <a
+                    href="https://www.linkedin.com/in/enzo-marcani-4bb478a2/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaLinkedin />
+                  </a>
+                  <a
+                    href="mailto:marcanienzo@gmail.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Email Me"
+                    title="Send me an email"
+                  >
+                    <FaEnvelope />
+                  </a>
                 </div>
                 <div className="chat-container">
                   {questionsAndAnswers.map((qa, index) => (
