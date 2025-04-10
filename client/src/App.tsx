@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Leagues from "./components/Leagues";
 import TextScramble from "./components/TextScramble";
 import LeagueDetails from "./components/LeagueDetails";
@@ -14,6 +14,8 @@ function App() {
   const [view, setView] = useState<"standings" | "scorers" | "matches">(
     "standings"
   );
+
+  const leagueDetailsRef = useRef<HTMLDivElement | null>(null);
 
   const [activeQuestion, setActiveQuestion] = useState<number | null>(null);
 
@@ -46,6 +48,12 @@ function App() {
 
   const handleSelectLeague = (selectedLeague: League) => {
     setLeague(selectedLeague);
+    if (window.innerWidth <= 768) {
+      // Only scroll if on mobile
+      if (window.innerWidth <= 768 && leagueDetailsRef.current) {
+        leagueDetailsRef.current.scrollIntoView({ behavior: "smooth" });
+      }
+    }
   };
 
   const handleToggleQuestion = (index: number) => {
@@ -154,7 +162,10 @@ function App() {
               </div>
             </div>
 
-            <div className="col-md-6 d-flex align-items-center justify-content-center">
+            <div
+              ref={leagueDetailsRef}
+              className="col-md-6 d-flex align-items-center justify-content-center"
+            >
               <div className="content-box w-100 league-data">
                 {league ? (
                   <LeagueDetails
