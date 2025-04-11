@@ -1,0 +1,175 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/* League Theme Variables */
+
+#leagueContent_PD {
+  --customLeague: #ff4b44;
+  --customText: #fff;
+}
+
+#leagueContent_PL {
+  --customLeague: #360b39;
+  --customText: #fff;
+  --customLeagueSB: #a782a9;
+}
+
+#leagueContent_CL {
+  --customLeague: #0e1e5b;
+  --customText: #fff;
+  --customLeagueSB: #091442;
+}
+
+#leagueContent_BL1,
+#leagueContent_DED {
+  --customLeague: #d10214;
+  --customText: #fff;
+  --customLeagueSB: #d10214;
+}
+
+#leagueContent_SA {
+  --customLeague: #0032a0;
+  --customText: #fff;
+  --customLeagueSB: #0578ff;
+}
+
+#leagueContent_FL1 {
+  --customLeague: #091c3e;
+  --customText: #cdfb0a;
+  --customLeagueSB: #cdfb0a;
+}
+
+#leagueContent_PPL {
+  --customLeague: #041740;
+  --customText: #fff;
+  --customLeagueSB: #3c4c74;
+}
+
+#leagueContent_ELC {
+  --customLeague: #283774;
+  --customText: #fff;
+  --customLeagueSB: #ea2120;
+}
+
+/* Base Styles  */
+body {
+  font-family: "Lato", sans-serif;
+  background-color: rgb(15 23 42);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/me_desktop.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.4),
+    rgba(255, 100, 0, 0.4)
+  );
+  z-index: -1;
+}
+
+@media (max-width: 750px) {
+  body::before {
+    background-image: url("/me_mobile.jpg");
+  }
+}
+
+h1,
+h2,
+h3,
+.scramble-text {
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+}
+
+p {
+  font-weight: 500;
+}
+
+.scramble-text {
+  font-size: 30px;
+}
+
+.social-links a {
+  color: inherit;
+  font-size: 24px;
+}
+
+.row {
+  margin: 0 !important;
+}
+
+@media (max-width: 750px) {
+  .col-md-6 {
+    padding: 0;
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.fit-content {
+  width: fit-content;
+  height: fit-content;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+/* Responsive TextScramble fix */
+.text-center > div {
+  width: 100%;
+  max-width: 500px;
+}
+
+.btn-group .btn {
+  margin: 0 0.25rem;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:focus,
+.btn:active,
+.btn.active {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--customLeagueSB, #ccc);
+}
+
+.btn-group .btn:hover {
+  border: 2px solid var(--customLeagueSB, var(--customLeague));
+}
+
+.offcanvas-inside-component {
+  position: absolute;
+}

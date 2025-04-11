@@ -1,133 +1,4 @@
-html{
-  scroll-behavior: smooth;
-}
-
-/* ========== League Theme Variables ========== */
-
-#leagueContent_PD {
-  --customLeague: #ff4b44;
-  --customText: #fff;
-}
-
-#leagueContent_PL {
-  --customLeague: #360b39;
-  --customText: #fff;
-  --customLeagueSB: #a782a9;
-}
-
-#leagueContent_CL {
-  --customLeague: #0e1e5b;
-  --customText: #fff;
-  --customLeagueSB: #091442;
-}
-
-#leagueContent_BL1,
-#leagueContent_DED {
-  --customLeague: #d10214;
-  --customText: #fff;
-  --customLeagueSB: #d10214;
-}
-
-#leagueContent_SA {
-  --customLeague: #0032a0;
-  --customText: #fff;
-  --customLeagueSB: #0578ff;
-}
-
-#leagueContent_FL1 {
-  --customLeague: #091c3e;
-  --customText: #cdfb0a;
-  --customLeagueSB: #cdfb0a;
-}
-
-#leagueContent_PPL {
-  --customLeague: #041740;
-  --customText: #fff;
-  --customLeagueSB: #3c4c74;
-}
-
-#leagueContent_ELC {
-  --customLeague: #283774;
-  --customText: #fff;
-  --customLeagueSB: #ea2120;
-}
-
-/* ========== Base Styles ========== */
-body {
-  font-family: "Lato", sans-serif;
-  background-color: rgb(15 23 42);
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: url("/me_desktop.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: -1; /* puts it behind everything */
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(255, 100, 0, 0.4));
-  z-index: -1;
-}
-
-@media (max-width: 750px) {
-  body::before {
-    background-image: url("/me_mobile.jpg");
-  }
-}
-
-
-h1, h2, h3, .scramble-text {
-  font-family: "Merriweather", serif;
-  font-weight: 700;
-}
-
-p{
-  font-weight: 500;
-}
-
-.scramble-text{
-  font-size: 30px;
-}
-
-.social-links a{
-  color: inherit;
-  font-size: 24px;
-}
-
-.row {
-  margin: 0 !important;
-}
-
-@media (max-width: 750px) {
-  .col-md-6{
-    padding: 0;
-  }
-}
-
-.pointer {
-  cursor: pointer;
-}
-
-.fit-content {
-  width: fit-content;
-  height: fit-content;
-}
-
-/* ========== Layout Containers ========== */
+/* Layout Containers  */
 .intro-container,
 .dark-bg,
 .table-dark {
@@ -161,7 +32,7 @@ p{
   }
 }
 
-/* ========== League Section ========== */
+/* League Section  */
 .football-data {
   display: flex;
   flex-direction: column;
@@ -184,7 +55,7 @@ p{
   }
 }
 
-/* ========== League Logos ========== */
+/* League Logos  */
 .competitions {
   display: grid;
   gap: 30px;
@@ -193,7 +64,8 @@ p{
   width: fit-content;
 }
 
-.competition-logo, .profile-picture {
+.competition-logo,
+.profile-picture {
   display: block;
   border-radius: 100%;
   border: 3px solid #bdc6c6;
@@ -214,14 +86,23 @@ p{
   transform: scale(1.2);
 }
 
-.competition-logo img.CL { top: -2px; position: relative; }
+.competition-logo img.CL {
+  top: -2px;
+  position: relative;
+}
 .competition-logo img.ELC,
-.competition-logo img.PPL { padding: 12px; }
+.competition-logo img.PPL {
+  padding: 12px;
+}
 .competition-logo img.BL1,
-.competition-logo img.PD { padding: 15px; }
-.competition-logo img.SA { padding: 0; }
+.competition-logo img.PD {
+  padding: 15px;
+}
+.competition-logo img.SA {
+  padding: 0;
+}
 
-/* ========== Tables ========== */
+/* Tables */
 .table thead th,
 .offcanvas,
 .accordion-button,
@@ -256,7 +137,7 @@ p{
   display: none;
 }
 
-/* ========== Tables and Grids ========== */
+/* Tables and Grids */
 .table-responsive {
   height: 370px;
   overflow-y: auto;
@@ -276,7 +157,7 @@ p{
   right: 0;
 }
 
-/* ========== Fixtures ========== */
+/* Fixtures */
 .match-fixture {
   display: flex;
   flex-direction: row;
@@ -311,11 +192,11 @@ p{
   font-size: 0.7em;
 }
 
-
 @media (max-width: 750px) {
   .offcanvas.offcanvas-end {
     top: 70px;
-    border-top: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
+    border-top: var(--bs-offcanvas-border-width) solid
+      var(--bs-offcanvas-border-color);
   }
 }
 
@@ -323,7 +204,7 @@ p{
   border-left: var(--bs-card-border-width) solid var(--bs-card-border-color);
 }
 
-/* ========== Utilities ========== */
+/* Utilities */
 .min-w-150 {
   min-width: 150px;
 }
@@ -376,7 +257,6 @@ p{
   padding: 2rem;
 }
 
-
 @media (max-width: 768px) {
   .section {
     padding: 1rem;
@@ -406,12 +286,12 @@ p{
   overflow: hidden;
 }
 
-.content-box.light{
+.content-box.light {
   background-color: #fff;
-  color:rgb(15 23 42);
+  color: rgb(15 23 42);
 }
 
-.content-box.no-bg{
+.content-box.no-bg {
   background: none;
 }
 
@@ -420,14 +300,14 @@ p{
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
 }
 
-.content-box .content-box{
+.content-box .content-box {
   color: #000;
   background: white;
   padding: 1rem;
 }
 
 @media (max-width: 768px) {
-  .content-box.intro{
+  .content-box.intro {
     background: none;
     color: #fff;
     border: none;
@@ -437,51 +317,9 @@ p{
     padding: 0;
   }
 
-  .content-box.league-data .content-box{
+  .content-box.league-data .content-box {
     padding: 1rem 0;
   }
-}
-
-/* Links */
-a {
-  color: #007bff;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: #0056b3;
-}
-
-/* Responsive TextScramble fix */
-.text-center > div {
-  width: 100%;
-  max-width: 500px;
-}
-
-.btn-group .btn {
-  margin: 0 0.25rem;
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.btn:focus,
-.btn:active,
-.btn.active {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--customLeagueSB, #ccc);
-}
-
-.btn-group .btn:hover {
-  border: 2px solid var(--customLeagueSB, var(--customLeague));
-}
-
-.offcanvas-inside-component {
-  position: absolute;
 }
 
 .placeholder {
@@ -500,7 +338,8 @@ a:hover {
 }
 
 @keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -530,7 +369,6 @@ a:hover {
   }
 }
 
-
 .typewriter {
   overflow: hidden;
   white-space: nowrap;
@@ -555,11 +393,8 @@ a:hover {
   }
 }
 
-
-/* LoadingOverlay */
-
 .loading-overlay {
-  position: absolute; 
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -576,7 +411,7 @@ a:hover {
 .loading-icon {
   width: 80px;
   height: 80px;
-  animation: spin 2s linear infinite; 
+  animation: spin 2s linear infinite;
 }
 
 @keyframes spin {
@@ -595,27 +430,22 @@ a:hover {
   margin-top: 20px;
 }
 
-
-/* Ball Scroll */
-
-/* Container for the ball, fixed at the bottom center */
 .scroll-ball {
   position: absolute;
-  bottom: 20px;  /* Place ball 20px above the bottom of the screen */
-  left: 50%;   /* Center horizontally */
-  transform: translateX(-50%); /* Ensure it's truly centered */
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 999;
   transition: transform 0.3s ease-in-out;
-  width: 80px;  /* Fixed width for the ball's circle */
-  height: 80px; /* Fixed height for the ball's circle */
-  background-color: transparent; /* Make the background transparent */
+  width: 80px;
+  height: 80px;
+  background-color: transparent;
 }
 
-/* Ball itself, centered inside the circle */
 .ball-icon {
   width: 60px;
   height: 60px;
@@ -628,70 +458,62 @@ a:hover {
   transition: transform 0.3s ease;
 }
 
-/* Foot icon, initially hidden */
 .foot-icon {
   position: absolute;
-  bottom: 20px; /* Position foot just below the ball */
+  bottom: 20px;
   left: 0;
-  transform: translateX(-50%) rotate(45deg); /* Center it horizontally below the ball and rotate */
-  opacity: 0; /* Initially hidden */
+  transform: translateX(-50%) rotate(45deg);
+  opacity: 0;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* On hover, show foot icon and make the ball slightly larger */
 .scroll-ball:hover .ball-icon {
-  transform: scale(1.1); /* Slightly enlarge the ball */
+  transform: scale(1.1);
 }
 
-/* Show foot icon and rotate when hovering */
 .scroll-ball:hover .foot-icon {
   opacity: 1;
-  transform: translateX(-50%) rotate(0deg); /* Remove rotation and make it point straight when hovering */
+  transform: translateX(-50%) rotate(0deg);
 }
 
-/* Kick state animation */
 .scroll-ball.kick .ball-icon {
   animation: bounce 0.2s ease-out;
 }
 
-/* Kick the foot icon on click */
 .scroll-ball.kick .foot-icon {
   animation: kick 0.3s ease-out;
-  opacity: 1; /* Ensure the foot icon is visible when kicked */
+  opacity: 1;
 }
 
-/* Keyframes for the bounce effect */
 @keyframes bounce {
   0% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-10px); /* Bounce upwards */
+    transform: translateY(-10px);
   }
   100% {
     transform: translateY(0);
   }
 }
 
-/* Keyframes for the foot icon kicking */
 @keyframes kick {
   0% {
-    transform: translateX(-50%) rotate(45deg); /* Initial position */
+    transform: translateX(-50%) rotate(45deg);
   }
   50% {
-    transform: translateX(-50%) rotate(15deg); /* Forward kick motion */
+    transform: translateX(-50%) rotate(15deg);
   }
   100% {
-    transform: translateX(-50%) rotate(-45deg); /* Finish position after kick */
+    transform: translateX(-50%) rotate(-45deg);
   }
 }
 
-/* Text guiding user to scroll */
 .scroll-text {
   position: absolute;
-  bottom: 40px; /* Position the text above the ball */
+  bottom: 40px;
   left: 50%;
-  transform: translateX(-50%); /* Center horizontally */
+  transform: translateX(-50%);
   font-size: 14px;
   color: #fff;
   z-index: 999;
@@ -700,32 +522,29 @@ a:hover {
   pointer-events: none;
 }
 
-/* Optional shadow effect for text */
 .scroll-text::before {
   content: "👇";
   font-size: 30px;
   display: block;
   margin-bottom: 10px;
-  color: #f7c500; /* Match the ball color */
+  color: #f7c500;
 }
 
 @media (max-width: 480px) {
   .scroll-ball,
-  .scroll-text{
+  .scroll-text {
     position: relative;
   }
 
   .scroll-ball {
-    bottom: -50px; 
+    bottom: -50px;
   }
-  .scroll-text{
+  .scroll-text {
     bottom: 50px;
     margin-bottom: 100px;
   }
 }
 
-
-/* General styles for chat elements */
 .chat-container {
   display: flex;
   flex-direction: column;
@@ -742,7 +561,7 @@ a:hover {
   cursor: pointer;
   position: relative;
   transition: transform 0.3s ease;
-  border-radius: 8px; 
+  border-radius: 8px;
 }
 
 .chat-button:hover {
@@ -756,7 +575,7 @@ a:hover {
 
 .chat-answer {
   background-color: #f1f1f1;
-  
+
   border-radius: 10px;
   max-height: 0;
   overflow: hidden;
@@ -770,10 +589,8 @@ a:hover {
   max-height: 500px;
   opacity: 1;
   transform: translateY(0);
-  /*transition: all 1s ease;*/
 }
 
-/* Animation for chat answer */
 @keyframes slideIn {
   from {
     opacity: 0;
