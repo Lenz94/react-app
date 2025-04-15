@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import LoadingOverlay from "./ui/LoadingOverlay";
-import { League } from "../types";
-import { API_URL } from "../utils/config";
+import LoadingOverlay from "../ui/LoadingOverlay";
+import { League } from "../../types";
+import { API_URL } from "../../utils/config";
 
 type LeaguesProps = {
   onSelectLeague: (league: League) => void;

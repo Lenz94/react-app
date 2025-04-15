@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { API_URL } from "../utils/config";
-import { Scorer } from "../types";
-import LoadingOverlay from "./ui/LoadingOverlay";
+import { API_URL } from "../../utils/config";
+import { Scorer } from "../../types";
+import LoadingOverlay from "../ui/LoadingOverlay";
 
 interface Props {
   leagueId: string;

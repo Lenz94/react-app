@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { API_URL, formatMatchDate } from "../utils/config";
-import LoadingOverlay from "./ui/LoadingOverlay";
-import { Match } from "../types";
+import { API_URL, formatMatchDate } from "../../utils/config";
+import LoadingOverlay from "../ui/LoadingOverlay";
+import { Match } from "../../types";
 
 interface Props {
   id: number | string;

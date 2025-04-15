@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { API_URL } from "../utils/config";
+import { API_URL } from "../../utils/config";
 import Fixtures from "./Fixtures";
-import { Area, Competition, Season, Standing } from "../types";
-import LoadingOverlay from "./ui/LoadingOverlay";
+import { Area, Competition, Season, Standing } from "../../types";
+import LoadingOverlay from "../ui/LoadingOverlay";
 
 interface Props {
   leagueId: string;

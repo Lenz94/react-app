@@ -3,7 +3,7 @@ import Scorers from "./Scorers";
 import MatchDayAccordion from "./MatchDayAccordion";
 import { IoFootball } from "react-icons/io5";
 import { GiBabyfootPlayers, GiSoccerField } from "react-icons/gi";
-import { League } from "../types";
+import { League } from "../../types";
 
 interface LeagueDetailsProps {
   league: League;
